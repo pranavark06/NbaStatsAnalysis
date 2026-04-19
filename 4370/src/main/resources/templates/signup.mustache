@@ -1,0 +1,24 @@
+{{> head}}
+<div class="page-shell form-shell">
+    {{> header}}
+    {{> alerts}}
+    <form action="/signup" method="post">
+        <label>Full name
+            <input type="text" name="fullName" value="{{fullName}}" required autofocus/>
+        </label>
+        <label>Username
+            <input type="text" name="username" value="{{username}}" required/>
+        </label>
+        <label>Password
+            <input type="password" name="password" required/>
+        </label>
+        <label>Confirm password
+            <input type="password" name="confirmPassword" required/>
+        </label>
+        <div class="button-group">
+            <button type="submit" class="button primary">Sign Up</button>
+            <a class="button secondary" href="/login">Back to login</a>
+        </div>
+    </form>
+</div>
+{{> footer}}

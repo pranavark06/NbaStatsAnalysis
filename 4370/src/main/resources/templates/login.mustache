@@ -1,0 +1,18 @@
+{{> head}}
+<div class="page-shell form-shell">
+    {{> header}}
+    {{> alerts}}
+    <form action="/login" method="post">
+        <label>Username
+            <input type="text" name="username" value="{{username}}" required autofocus/>
+        </label>
+        <label>Password
+            <input type="password" name="password" required/>
+        </label>
+        <div class="button-group">
+            <button type="submit" class="button primary">Login</button>
+            <a class="button secondary" href="/signup">Create account</a>
+        </div>
+    </form>
+</div>
+{{> footer}}
