@@ -12105,3 +12105,7 @@ INSERT INTO draft_history VALUES('77196','Sam Jones','1957',1,8,8,'Draft','16106
 INSERT INTO draft_history VALUES('76605','Dick Duckett','1957',2,1,9,'Draft','1610612758','Cincinnati','Royals','CIN','St. John''s (NY)','College/University','1');
 INSERT INTO draft_history VALUES('79960','Bob McCoy','1957',2,2,10,'Draft','1610612765','Detroit','Pistons','DET','Grambling','College/University','0');
 INSERT INTO draft_history VALUES('79965','Harvey Schmidt','1957',2,3,11,'Draft','1610612747','Minneapolis','Lakers','MNL','Illinois','College/University','0');
+INSERT INTO users (username, password_hash, full_name) VALUES
+('jdoe', '$2b$12$8hbZXWF6XSRX8/..FFBovuciVo9V/BJda2H70U88FfHjMFn9uxCdC', 'John Doe'),
+('jsmith', '$2b$12$sI9Xc16H7Lht4HCmvbPNWevVmBmDY28tbbU0nOvyxmrFSWQPnUlju', 'Jane Smith'),
+('mjones', '$2b$12$ybTQDo6Ei8yJzaQNjVeRTeODIqZ8NKW1Xs97MNJjCT9U2G0cByQfK', 'Mike Jones');

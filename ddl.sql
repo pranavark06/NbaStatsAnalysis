@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `game` (
   `team_abbreviation_home` TEXT,
   `team_name_home` TEXT,
   `game_id` TEXT,
-  `game_date` TIMESTAMP,
+  `game_date` DATETIME,
   `matchup_home` TEXT,
   `wl_home` TEXT,
   `min` INTEGER,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `game` (
   `season_type` TEXT
 );
 CREATE TABLE IF NOT EXISTS `game_summary` (
-`game_date_est` TIMESTAMP,
+`game_date_est` DATETIME,
   `game_sequence` INTEGER,
   `game_id` TEXT,
   `game_status_id` INTEGER,
@@ -119,12 +119,12 @@ CREATE TABLE IF NOT EXISTS `inactive_players` (
 );
 CREATE TABLE IF NOT EXISTS `game_info` (
 `game_id` TEXT,
-  `game_date` TIMESTAMP,
+  `game_date` DATETIME,
   `attendance` INTEGER,
   `game_time` TEXT
 );
 CREATE TABLE IF NOT EXISTS `line_score` (
-`game_date_est` TIMESTAMP,
+`game_date_est` DATETIME,
   `game_sequence` INTEGER,
   `game_id` TEXT,
   `team_id_home` TEXT,
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `common_player_info` (
   `display_last_comma_first` TEXT,
   `display_fi_last` TEXT,
   `player_slug` TEXT,
-  `birthdate` TIMESTAMP,
+  `birthdate` DATETIME,
   `school` TEXT,
   `country` TEXT,
   `last_affiliation` TEXT,
@@ -370,4 +370,10 @@ CREATE TABLE IF NOT EXISTS `team_details` (
   `facebook` TEXT,
   `instagram` TEXT,
   `twitter` TEXT
+);
+CREATE TABLE IF NOT EXISTS `users` (
+    `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(50) UNIQUE NOT NULL,
+    `password_hash` VARCHAR(255) NOT NULL,
+    `full_name` VARCHAR(100) NOT NULL
 );
