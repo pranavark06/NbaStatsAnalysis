@@ -1,0 +1,57 @@
+Data derived from "NBA Database" by Wyatt Walsh on Kaggle: https://www.kaggle.com/datasets/wyattowalsh/basketball?resource=download&select=nba.sqlite
+
+Converted from SQLite to SQL dump with the following CLI command:
+"C:\Users\tnl56757\Downloads\sqlite-tools-win-x64-3530000\sqlite3.exe" "C:\Users\tnl56757\Downloads\nba.sqlite\nba.sqlite" .dump > "C:\Users\tnl56757\Downloads\dump.sql"
+
+Cleaned SQLite syntax for MySQL with following Python script:
+
+import re
+
+with open(r'C:\Users\tnl56757\Downloads\dump.sql', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+content = re.sub(r'PRAGMA.*?\n', '', content)
+content = re.sub(r'BEGIN TRANSACTION;\n', '', content)
+content = re.sub(r'COMMIT;\n', '', content)
+content = re.sub(r'"([^"]+)"', r'`\1`', content)
+content = content.replace('AUTOINCREMENT', 'AUTO_INCREMENT')
+content = re.sub(r'(\d{4}-\d{2}-\d{2}) 00:00:00', r'\1 00:00:01', content)
+
+with open(r'C:\Users\tnl56757\Downloads\dump_clean.sql', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+
+Trimmed tables to 1000 rows with the following Python script:
+
+import re
+
+input_file = r'C:\Users\tnl56757\Downloads\dump_clean.sql'
+output_file = r'C:\Users\tnl56757\Downloads\dump_trimmed.sql'
+
+MAX_ROWS = 1000
+
+table_counts = {}
+output_lines = []
+
+with open(input_file, 'r', encoding='utf-8', newline='') as f:
+    for line in f:
+        line = line.rstrip('\r\n')
+        stripped = line.strip().upper()
+
+        if not stripped.startswith('INSERT INTO'):
+            output_lines.append(line)
+            continue
+
+        match = re.match(r'INSERT INTO\s+[`"]?(\w+)[`"]?', line.strip(), re.IGNORECASE)
+        if not match:
+            output_lines.append(line)
+            continue
+
+        table_name = match.group(1)
+        table_counts[table_name] = table_counts.get(table_name, 0) + 1
+
+        if table_counts[table_name] <= MAX_ROWS:
+            output_lines.append(line)
+
+with open(output_file, 'w', encoding='utf-8') as f:
+    f.write('\n'.join(output_lines))
