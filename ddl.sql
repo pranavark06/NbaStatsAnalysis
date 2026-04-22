@@ -99,24 +99,6 @@ CREATE TABLE IF NOT EXISTS `other_stats` (
   `team_rebounds_away` INTEGER,
   `pts_off_to_away` INTEGER
 );
-CREATE TABLE IF NOT EXISTS `officials` (
-`game_id` TEXT,
-  `official_id` TEXT,
-  `first_name` TEXT,
-  `last_name` TEXT,
-  `jersey_num` TEXT
-);
-CREATE TABLE IF NOT EXISTS `inactive_players` (
-`game_id` TEXT,
-  `player_id` TEXT,
-  `first_name` TEXT,
-  `last_name` TEXT,
-  `jersey_num` TEXT,
-  `team_id` TEXT,
-  `team_city` TEXT,
-  `team_name` TEXT,
-  `team_abbreviation` TEXT
-);
 CREATE TABLE IF NOT EXISTS `game_info` (
 `game_id` TEXT,
   `game_date` DATETIME,
@@ -168,42 +150,6 @@ CREATE TABLE IF NOT EXISTS `line_score` (
   `pts_ot10_away` INTEGER,
   `pts_away` REAL
 );
-CREATE TABLE IF NOT EXISTS `play_by_play` (
-`game_id` TEXT,
-  `eventnum` INTEGER,
-  `eventmsgtype` INTEGER,
-  `eventmsgactiontype` INTEGER,
-  `period` INTEGER,
-  `wctimestring` TEXT,
-  `pctimestring` TEXT,
-  `homedescription` TEXT,
-  `neutraldescription` TEXT,
-  `visitordescription` TEXT,
-  `score` TEXT,
-  `scoremargin` TEXT,
-  `person1type` REAL,
-  `player1_id` TEXT,
-  `player1_name` TEXT,
-  `player1_team_id` TEXT,
-  `player1_team_city` TEXT,
-  `player1_team_nickname` TEXT,
-  `player1_team_abbreviation` TEXT,
-  `person2type` REAL,
-  `player2_id` TEXT,
-  `player2_name` TEXT,
-  `player2_team_id` TEXT,
-  `player2_team_city` TEXT,
-  `player2_team_nickname` TEXT,
-  `player2_team_abbreviation` TEXT,
-  `person3type` REAL,
-  `player3_id` TEXT,
-  `player3_name` TEXT,
-  `player3_team_id` TEXT,
-  `player3_team_city` TEXT,
-  `player3_team_nickname` TEXT,
-  `player3_team_abbreviation` TEXT,
-  `video_available_flag` TEXT
-);
 CREATE TABLE IF NOT EXISTS `player` (
 `id` TEXT,
   `full_name` TEXT,
@@ -219,34 +165,6 @@ CREATE TABLE IF NOT EXISTS `team` (
   `city` TEXT,
   `state` TEXT,
   `year_founded` REAL
-);
-CREATE TABLE IF NOT EXISTS `team_info_common` (
-`team_id` TEXT,
-  `season_year` TEXT,
-  `team_city` TEXT,
-  `team_name` TEXT,
-  `team_abbreviation` TEXT,
-  `team_conference` TEXT,
-  `team_division` TEXT,
-  `team_code` TEXT,
-  `team_slug` TEXT,
-  `w` INTEGER,
-  `l` INTEGER,
-  `pct` REAL,
-  `conf_rank` INTEGER,
-  `div_rank` INTEGER,
-  `min_year` INTEGER,
-  `max_year` INTEGER,
-  `league_id` TEXT,
-  `season_id` TEXT,
-  `pts_rank` INTEGER,
-  `pts_pg` REAL,
-  `reb_rank` INTEGER,
-  `reb_pg` REAL,
-  `ast_rank` INTEGER,
-  `ast_pg` REAL,
-  `opp_pts_rank` INTEGER,
-  `opp_pts_pg` REAL
 );
 CREATE TABLE IF NOT EXISTS `common_player_info` (
 `person_id` TEXT,

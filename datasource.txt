@@ -20,38 +20,98 @@ content = re.sub(r'(\d{4}-\d{2}-\d{2}) 00:00:00', r'\1 00:00:01', content)
 with open(r'C:\Users\tnl56757\Downloads\dump_clean.sql', 'w', encoding='utf-8') as f:
     f.write(content)
 
-
-Trimmed tables to 1000 rows with the following Python script:
+Trimmed tables to 2018 NBA season rows with the following Python script:
 
 import re
 
 input_file = r'C:\Users\tnl56757\Downloads\dump_clean.sql'
 output_file = r'C:\Users\tnl56757\Downloads\dump_trimmed.sql'
 
-MAX_ROWS = 1000
+start_date = '2018-10-16'
+end_date = '2019-06-13'
+
+skip_tables = {'play_by_play', 'officials', 'inactive_players'}
+keep_full_tables = {'player', 'team', 'team_details', 'team_history', 'draft_history', 'draft_combine_stats', 'common_player_info', 'users'}
+game_id_tables = {'other_stats', 'game_info'}
+game_id_third_tables = {'game_summary', 'line_score'}
+
+game_id_pattern = re.compile(r"INSERT INTO game VALUES\('[^']+','[^']+','[^']+','[^']+','([^']+)','(\d{4}-\d{2}-\d{2})", re.IGNORECASE)
+first_value_pattern = re.compile(r"VALUES\('([^']+)'", re.IGNORECASE)
+game_id_third_pattern = re.compile(r"VALUES\('[^']*',(?:'[^']*'|[^,]*),'([^']+)'", re.IGNORECASE)
+date_pattern = re.compile(r"'(\d{4}-\d{2}-\d{2})")
+
+
+all_lines = []
+game_rows = []
+
+with open(input_file, 'r', encoding='utf-8') as f:
+    for line in f:
+        line = line.rstrip('\r\n')
+        all_lines.append(line)
+        stripped = line.strip()
+        if re.match(r'INSERT INTO\s+[`"]?game[`"]?\s+VALUES', stripped, re.IGNORECASE):
+            game_rows.append(stripped)
+
+valid_game_ids = set()
+for line in game_rows:
+    m = game_id_pattern.search(line)
+    if m and start_date <= m.group(2) <= end_date:
+        valid_game_ids.add(m.group(1))
 
 table_counts = {}
 output_lines = []
 
-with open(input_file, 'r', encoding='utf-8', newline='') as f:
-    for line in f:
-        line = line.rstrip('\r\n')
-        stripped = line.strip().upper()
+for line in all_lines:
+    stripped = line.strip()
 
-        if not stripped.startswith('INSERT INTO'):
-            output_lines.append(line)
-            continue
+    if not stripped.upper().startswith('INSERT INTO'):
+        output_lines.append(line)
+        continue
 
-        match = re.match(r'INSERT INTO\s+[`"]?(\w+)[`"]?', line.strip(), re.IGNORECASE)
-        if not match:
-            output_lines.append(line)
-            continue
+    match = re.match(r'INSERT INTO\s+[`"]?(\w+)[`"]?', stripped, re.IGNORECASE)
+    if not match:
+        output_lines.append(line)
+        continue
 
-        table_name = match.group(1)
+    table_name = match.group(1).lower()
+
+    if table_name in skip_tables:
+        continue
+
+    if table_name in keep_full_tables:
         table_counts[table_name] = table_counts.get(table_name, 0) + 1
+        output_lines.append(line)
+        continue
 
-        if table_counts[table_name] <= MAX_ROWS:
+    if table_name == 'game':
+        m = game_id_pattern.search(stripped)
+        if m and start_date <= m.group(2) <= end_date:
+            table_counts[table_name] = table_counts.get(table_name, 0) + 1
             output_lines.append(line)
+        continue
+
+    if table_name in game_id_tables:
+        m = first_value_pattern.search(stripped)
+        if m and m.group(1) in valid_game_ids:
+            table_counts[table_name] = table_counts.get(table_name, 0) + 1
+            output_lines.append(line)
+        continue
+
+    if table_name in game_id_third_tables:
+        m = game_id_third_pattern.search(stripped)
+        if m and m.group(1) in valid_game_ids:
+            table_counts[table_name] = table_counts.get(table_name, 0) + 1
+            output_lines.append(line)
+        continue
+
+    date_match = date_pattern.search(stripped)
+    if date_match:
+        if start_date <= date_match.group(1) <= end_date:
+            table_counts[table_name] = table_counts.get(table_name, 0) + 1
+            output_lines.append(line)
+    else:
+        table_counts[table_name] = table_counts.get(table_name, 0) + 1
+        output_lines.append(line)
 
 with open(output_file, 'w', encoding='utf-8') as f:
     f.write('\n'.join(output_lines))
