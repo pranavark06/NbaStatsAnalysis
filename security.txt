@@ -1,0 +1,7 @@
+This web app does not store user passwords in plain text. Instead, when a new user signs up, the password is hashed using Spring Security's BCryptPasswordEncoder before it is inserted into the users table. The database stores only the BCrypt hash in the password_hash column.
+
+During login, the application retrieves the stored hash for the submitted username and uses BCryptPasswordEncoder.matches(...) to compare the entered password against that hash. This means the original password does not need to be decrypted or stored anywhere in the database.
+
+BCrypt is a strong password hashing algorithm because it automatically includes a salt and is designed to be slow enough to make brute-force attacks more difficult than plain hashing methods.
+
+The application also uses SQL prepared statements for login and signup queries. This helps protect the username and password-related database operations from SQL injection attacks.
