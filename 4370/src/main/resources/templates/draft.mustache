@@ -1,0 +1,40 @@
+{{> head}}
+<div class="page-shell form-shell">
+    {{> header}}
+
+    <form method="get" action="/draft">
+        <label for="season">Draft Year</label>
+        <input id="season" name="season" type="text" value="{{season}}" placeholder="2022"/>
+
+        <label for="query">Player or Team</label>
+        <input id="query" name="query" type="text" value="{{query}}" placeholder="James, Lakers, BOS"/>
+
+        <div class="button-group">
+            <button class="button primary" type="submit">Search Draft Picks</button>
+            <a class="button secondary" href="/home">Back Home</a>
+        </div>
+    </form>
+
+    {{#hasSearch}}
+        {{#picks}}
+            <div class="card draft-card">
+                <p class="draft-title">#{{overallPick}} {{playerName}} ({{season}})</p>
+                <p>Round {{roundNumber}}, pick {{roundPick}} by {{teamName}} ({{teamAbbreviation}})</p>
+                <p>{{position}} • {{school}} • {{country}}</p>
+            </div>
+        {{/picks}}
+
+        {{^picks}}
+            <div class="card">
+                <p>No draft picks matched those filters.</p>
+            </div>
+        {{/picks}}
+    {{/hasSearch}}
+
+    {{^hasSearch}}
+        <div class="card">
+            <p>Search by draft year, player, or team to see matching draft picks.</p>
+        </div>
+    {{/hasSearch}}
+</div>
+{{> footer}}

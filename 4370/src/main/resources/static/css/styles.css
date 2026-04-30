@@ -132,6 +132,10 @@ input {
     transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
+button.button {
+    font: inherit;
+}
+
 input:focus {
     outline: none;
     border-color: rgba(31, 106, 92, 0.55);
@@ -223,6 +227,15 @@ input::placeholder {
     font-size: 1.02rem;
     line-height: 1.65;
     color: var(--muted);
+}
+
+.draft-card + .draft-card {
+    margin-top: 1rem;
+}
+
+.draft-title {
+    color: var(--text);
+    font-weight: 700;
 }
 
 @media (max-width: 640px) {
