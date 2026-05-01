@@ -41,7 +41,7 @@ public class DraftController {
 
     private List<DraftPickView> findPicks(String season, String query) {
         String sql = """
-                SELECT dh.season,
+                SELECT distinct dh.season,
                        dh.round_number,
                        dh.round_pick,
                        dh.overall_pick,
