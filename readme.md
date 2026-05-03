@@ -55,17 +55,6 @@
   </tr>
 </table>
 
-
-
-Database `sports`
-Database username: root
-Database password: mysqlpass
-
-Test users:
-user: jdoe password: johnsSSPW
-user: jsmith password: janesSSPW
-user: mjones password: mikesSSPW
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#contributors)
 
 ## Contributions
@@ -75,21 +64,44 @@ user: mjones password: mikesSSPW
 | Login/Signup             | `Tyler L.`         | `Users can sign up and log into the web app with using hashed passwords`                                             |
 | Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`                                           |
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
-( Readme.txt               |
-| Readme.md                | 'Swapnil R.`       | `Readme.md styling and issue tracking, ensuring deliverables were met`                                               |
+| Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`
+| Readme.txt                | `Swapnil R.`      | `Technology, 3rd Party, and                                                |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#running)
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#dependencies)
 
-## Installation
+## Project Dependencies
 
-### Requirements
+### Technology Requirements
 ```
 Java (jdk 21.0.8 2025-07-15 LTS) programming language
 MySQL 8 database management system
 Docker version 28.3.2, build 578ccf6
 Apache Maven 3.9.11
 ```
+
+### Third-Party Libraries
+```
+[PLACEHOLDER]
+```
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#project-structure)
+## Project Structure
+
+### Database
+- Name: `sports`
+- JDBC Connection Username: `root`
+- JDBC Connection Password: `mysqlpass`
+
+### Test Users
+- `user: jdoe / password: johnsSSPW`
+- `user: jsmith password: janesSSPW`
+- `user: mjones password: mikesSSPW`
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#running)
+
+## Installation
+
 ### Installing Docker
 Check out the [Docker installation guide](https://github.com/thespcrewroy/CSCI4370-DatabaseManagement/blob/main/Notes/00-Setup/01-docker-mysql.md)
 
