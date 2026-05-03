@@ -166,7 +166,7 @@ LEFT JOIN common_player_info cpi
 	ON pgs.PLAYER_ID = cpi.person_id
 LEFT JOIN draft_history dh
 	ON pgs.PLAYER_ID = dh.person_id
--- Season averages: aggregate all games for this player in the same season
+-- Season averages: aggregates all games for this player in the same season
 LEFT JOIN (
 	SELECT
 		sa_pgs.PLAYER_ID,
@@ -199,9 +199,9 @@ ORDER BY
     
 SELECT * FROM game ORDER BY game_date DESC LIMIT 100
     
-SELECT * FROM game WHERE team_abbreviation_home = ? OR team_abbreviation_away = ? ORDER BY game_date DESC";
-
-SELECT * FROM game WHERE game_date BETWEEN ? AND ? ORDER BY game_date DESC
-
-SELECT DISTINCT team_abbreviation_home FROM game ORDER BY team_abbreviation_home
+SELECT * FROM game WHERE team_abbreviation_home = ? OR team_abbreviation_away = ? ORDER BY game_date DESC;
+	
+SELECT * FROM game WHERE game_date BETWEEN ? AND ? ORDER BY game_date DESC;
+	
+SELECT DISTINCT team_abbreviation_home FROM game ORDER BY team_abbreviation_home;
 
