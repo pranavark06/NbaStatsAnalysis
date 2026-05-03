@@ -118,9 +118,32 @@ Added Rows:
 exit
 ```
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#resources)
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
 
-## External Resources & Leranings
+## Have Questions?
 
-* https://www.w3resource.com/mysql/date-and-time-functions/mysql-date_sub-function.php#google_vignette - Used for showing the trending posts in the given time interval
-* https://docs.oracle.com/javase/8/docs/api/java/sql/SQLException.html - Code would not function on Windows without having to throw exceptions for risky behavior
+> [!NOTE]\
+> **Email one of the contributors or email Professor Sami Menik. That's it for now. Have a great day!**
+
+* [Sami Menik](mailto:sami.menik@uga.edu)
+* [Tyler Lyons](mailto:tnl56757@uga.edu)
+* [SriRam SuriSetty](mailto:ss18317@uga.edu)
+* [Neil Correia](mailto:nac55642@uga.edu)
+* [Swapnil Roy](mailto:sr42946@uga.edu)
+* [Pranav Arkatala](mailto:pa38192@uga.edu)
+
+> If you stumble upon an issue or have a feature request you are very welcome to open a Github issue or pull request.
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
+
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+<small>
+Copyright (c) 2024 Sami Menik, PhD. All rights reserved.
+
+This is a project developed by Dr. Menik to give the students an opportunity to apply database concepts learned in the class in a real world project. Permission is granted to host a running version of this software and to use images or videos of this work solely for the purpose of demonstrating the work to potential employers. Any form of reproduction, distribution, or transmission of the software's source code, in part or whole, without the prior written consent of the copyright owner, is strictly prohibited.
+
+<p align="right"><a href="#top">🔼 Back to top</a></p>
+</small>
+
