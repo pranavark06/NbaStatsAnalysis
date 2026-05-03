@@ -34,23 +34,23 @@
   <tr>
     <td align="center">
       <img src="assets/neil.png" width="160"><br>
-      Neil
+      Neil Correia
     </td>
     <td align="center">
       <img src="assets/pranav.jpeg" width="160"><br>
-      Pranav
+      Pranav Arkatala
     </td>
     <td align="center">
       <img src="assets/sriram.png" width="160"><br>
-      Sriram
+      Sriram Surisetty
     </td>
     <td align="center">
       <img src="assets/swapnil2.png" width="160"><br>
-      Swapnil
+      Swapnil Roy
     </td>
     <td align="center">
       <img src="assets/tyler.png" width="160"><br>
-      Tyler
+      Tyler Lyons
     </td>
   </tr>
 </table>
