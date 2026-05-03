@@ -33,12 +33,13 @@ public class RankingsController {
         }
 
         int safeMinGames = Math.max(1, Math.min(minGames, 82));
+        String currentSeason = selectedSeason;
 
         model.addAttribute("title", "Team Rankings");
         model.addAttribute("pageTitle", "Team Rankings");
         model.addAttribute("pageSubtitle", "Rank NBA teams by regular season wins and scoring margin.");
         model.addAttribute("seasons", seasons.stream()
-                .map(value -> new SeasonOption(value, value.equals(selectedSeason)))
+                .map(value -> new SeasonOption(value, value.equals(currentSeason)))
                 .toList());
         model.addAttribute("selectedSeason", selectedSeason);
         model.addAttribute("minGames", safeMinGames);
