@@ -45,7 +45,7 @@
       Sriram
     </td>
     <td align="center">
-      <img src="assets/swapnil.png" width="160"><br>
+      <img src="assets/swapnil2.png" width="160"><br>
       Swapnil
     </td>
     <td align="center">
