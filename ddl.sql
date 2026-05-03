@@ -299,3 +299,35 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE INDEX idx_game_season_type ON `game` (`season_type`(20), `season_id`(10));
 CREATE INDEX idx_game_rankings_home ON `game` (`season_type`(20), `season_id`(10), `team_id_home`(20), `team_abbreviation_home`(10));
 CREATE INDEX idx_game_rankings_away ON `game` (`season_type`(20), `season_id`(10), `team_id_away`(20), `team_abbreviation_away`(10));
+
+CREATE TABLE IF NOT EXISTS player_game_stats (
+      GAME_ID text,
+      TEAM_ID text,
+      TEAM_ABBREVIATION text, 
+      TEAM_CITY text, 
+      PLAYER_ID text, 
+      PLAYER_NAME text, 
+      NICKNAME text,
+      START_POSITION text,
+      COMMENT text,
+      MIN text,
+      FGM text,
+      FGA text,
+      FG_PCT text,
+      FG3M text,
+      FG3A text,
+      FG3_PCT text,
+      FTM text,
+      FTA text, 
+      FT_PCT text, 
+      OREB text, 
+      DREB text, 
+      REB text, 
+      AST text, 
+      STL text,
+      BLK text, 
+      TTO text, 
+      PF text, 
+      PTS text, 
+      PLUS_MINUS text
+  );
