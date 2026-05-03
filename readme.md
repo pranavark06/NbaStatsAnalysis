@@ -100,56 +100,49 @@ SOURCE /tmp/data.sql;
 ```
 
 **7. Quick Sanity Check** <br>
-
-Check for 13 rows:
-```
+```sql
 USE sports;
 SHOW TABLES;
 ```
 
 <p align="center">
-  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/assets/tables.png" alt="Imported Tables" width="400" 
+  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/tables.png" alt="Imported Tables" width="300" 
 />
 
 Added Rows:
 * Pranav Artakla: `player_game_stats`
-
-```
-SELECT COUNT(*) FROM game;
-SELECT COUNT(*) FROM player_game_stats;
-SELECT COUNT(*) FROM users;
-```
 
 **8. Exit**
 ```console
 exit
 ```
 
-### Running on OSX/Unix
-```bash
-mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=8081'
-```
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
 
-### Running on Windows CmdLine
-```sh
-mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081"
-```
+## Have Questions?
 
-### Running on Windows PowerShell
-```shell
-mvn spring-boot:run --% -Dspring-boot.run.arguments="--server.port=8081"
-```
+> [!NOTE]\
+> **Email one of the contributors or email Professor Sami Menik. That's it for now. Have a great day!**
 
-### Using the Application
+* [Sami Menik](mailto:sami.menik@uga.edu)
+* [Tyler Lyons](mailto:tnl56757@uga.edu)
+* [SriRam SuriSetty](mailto:ss18317@uga.edu)
+* [Neil Correia](mailto:nac55642@uga.edu)
+* [Swapnil Roy](mailto:sr42946@uga.edu)
+* [Pranav Arkatala](mailto:pa38192@uga.edu)
 
-Open the browser and navigate to the following URL: ```http://localhost:8081/```<br>
-
-Create an account and login!
+> If you stumble upon an issue or have a feature request you are very welcome to open a Github issue or pull request.
 
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#resources)
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
 
-## External Resources & Leranings
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-* https://www.w3resource.com/mysql/date-and-time-functions/mysql-date_sub-function.php#google_vignette - Used for showing the trending posts in the given time interval
-* https://docs.oracle.com/javase/8/docs/api/java/sql/SQLException.html - Code would not function on Windows without having to throw exceptions for risky behavior
+<small>
+Copyright (c) 2024 Sami Menik, PhD. All rights reserved.
+
+This is a project developed by Dr. Menik to give the students an opportunity to apply database concepts learned in the class in a real world project. Permission is granted to host a running version of this software and to use images or videos of this work solely for the purpose of demonstrating the work to potential employers. Any form of reproduction, distribution, or transmission of the software's source code, in part or whole, without the prior written consent of the copyright owner, is strictly prohibited.
+
+<p align="right"><a href="#top">🔼 Back to top</a></p>
+</small>
+
