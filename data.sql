@@ -52327,4 +52327,31 @@ INSERT INTO player_game_stats VALUES ('0041800406', '1610612744', 'GSW', 'Golden
 INSERT INTO player_game_stats VALUES ('0041800406', '1610612744', 'GSW', 'Golden State', '1626188', 'Quinn Cook', 'Quinn', NULL, NULL, '12:31', 1.0, 3.0, 0.333, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, -16.0);
 INSERT INTO player_game_stats VALUES ('0041800406', '1610612744', 'GSW', 'Golden State', '2733', 'Shaun Livingston', 'Shaun', NULL, NULL, '16:10', 3.0, 5.0, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 6.0, -4.0);
 INSERT INTO player_game_stats VALUES ('0041800406', '1610612744', 'GSW', 'Golden State', '201973', 'Jonas Jerebko', 'Jonas', NULL, NULL, '2:19', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 202695, 'Kawhi Leonard', 'Kawhi', 'F', NULL, '18:33', 7, 14, 0.5, 5, 11, 0.455, 0, 0, 0, 1, 4, 5, 2, 0, 1, 0, 1, 19, -13);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 2544, 'LeBron James', 'LeBron', 'F', NULL, '26:32:00', 9, 17, 0.529, 1, 8, 0.125, 0, 1, 0, 2, 6, 8, 4, 0, 2, 1, 1, 19, -4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 201142, 'Kevin Durant', 'Kevin', 'C', NULL, '25:26:00', 10, 15, 0.667, 6, 9, 0.667, 5, 5, 1, 0, 7, 7, 2, 1, 2, 2, 1, 31, -4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 201935, 'James Harden', 'James', 'G', NULL, '26:13:00', 4, 13, 0.308, 4, 13, 0.308, 0, 0, 0, 0, 4, 4, 3, 1, 0, 3, 1, 12, 7);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 202681, 'Kyrie Irving', 'Kyrie', 'G', NULL, '24:45:00', 6, 12, 0.5, 1, 4, 0.25, 0, 0, 0, 4, 5, 9, 6, 1, 1, 1, 3, 13, 9);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 203081, 'Damian Lillard', 'Damian', NULL, NULL, '24:41:00', 6, 17, 0.353, 6, 17, 0.353, 0, 0, 0, 3, 3, 6, 5, 2, 0, 1, 0, 18, 15);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 202691, 'Klay Thompson', 'Klay', NULL, NULL, '22:18', 7, 16, 0.438, 6, 12, 0.5, 0, 0, 0, 1, 7, 8, 4, 1, 0, 0, 2, 20, 4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 200746, 'LaMarcus Aldridge', 'LaMarcus', NULL, NULL, '10:47', 1, 2, 0.5, 0, 0, 0, 0, 0, 0, 0, 4, 4, 1, 0, 0, 0, 0, 2, 11);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 203076, 'Anthony Davis', 'Anthony', NULL, NULL, '4:53', 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 5, -2);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 203078, 'Bradley Beal', 'Bradley', NULL, NULL, '17:42', 4, 11, 0.364, 3, 10, 0.3, 0, 0, 0, 1, 0, 1, 3, 1, 0, 0, 0, 11, 15);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 2548, 'Dwyane Wade', 'Dwyane', NULL, NULL, '10:27', 2, 4, 0.5, 1, 2, 0.5, 2, 2, 1, 0, 2, 2, 4, 0, 0, 1, 0, 7, 4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 1627732, 'Ben Simmons', 'Ben', NULL, NULL, '16:35', 5, 5, 1, 0, 0, 0, 0, 0, 0, 4, 2, 6, 7, 1, 0, 0, 0, 10, 19);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616834', 'LBN', 'Team', 1626157, 'Karl-Anthony Towns', 'Karl-Anthony', NULL, NULL, '11:08', 5, 7, 0.714, 1, 3, 0.333, 0, 0, 0, 2, 1, 3, 1, 1, 0, 0, 0, 11, 4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 202331, 'Paul George', 'Paul', 'F', NULL, '25:41:00', 7, 14, 0.5, 6, 12, 0.5, 0, 0, 0, 0, 2, 2, 4, 3, 0, 0, 0, 20, -21);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 203507, 'Giannis Antetokounmpo', 'Giannis', 'F', NULL, '27:09:00', 17, 23, 0.739, 2, 6, 0.333, 2, 2, 1, 4, 7, 11, 5, 1, 0, 3, 2, 38, -6);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 203954, 'Joel Embiid', 'Joel', 'C', NULL, '23:11', 4, 12, 0.333, 0, 3, 0, 2, 4, 0.5, 6, 6, 12, 1, 1, 1, 1, 2, 10, -6);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 201939, 'Stephen Curry', 'Stephen', 'G', NULL, '29:25:00', 6, 23, 0.261, 4, 17, 0.235, 1, 1, 1, 1, 8, 9, 7, 0, 0, 2, 0, 17, 2);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 202689, 'Kemba Walker', 'Kemba', 'G', NULL, '20:19', 2, 8, 0.25, 0, 5, 0, 0, 0, 0, 0, 1, 1, 8, 1, 0, 0, 0, 4, -7);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 203999, 'Nikola Jokić', 'Nikola', NULL, NULL, '13:11', 3, 4, 0.75, 0, 0, 0, 0, 0, 0, 3, 6, 9, 0, 0, 0, 1, 1, 6, -4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 203114, 'Khris Middleton', 'Khris', NULL, NULL, '21:37', 7, 13, 0.538, 6, 10, 0.6, 0, 0, 0, 4, 1, 5, 4, 0, 0, 1, 0, 20, 3);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 200768, 'Kyle Lowry', 'Kyle', NULL, NULL, '12:44', 1, 5, 0.2, 1, 4, 0.25, 0, 0, 0, 0, 3, 3, 3, 0, 0, 1, 1, 3, 2);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 201566, 'Russell Westbrook', 'Russell', NULL, NULL, '19:20', 8, 20, 0.4, 1, 8, 0.125, 0, 0, 0, 0, 4, 4, 3, 1, 0, 1, 0, 17, -19);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 201933, 'Blake Griffin', 'Blake', NULL, NULL, '19:41', 4, 8, 0.5, 2, 4, 0.5, 0, 0, 0, 3, 3, 6, 3, 0, 0, 0, 0, 10, -1);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 1717, 'Dirk Nowitzki', 'Dirk', NULL, NULL, '3:59', 3, 3, 1, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, -1);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 1626156, 'D''Angelo Russell', 'D''Angelo', NULL, NULL, '12:05', 2, 5, 0.4, 2, 5, 0.4, 0, 0, 0, 0, 1, 1, 3, 0, 0, 1, 0, 6, -4);
+INSERT INTO player_game_stats VALUES ('0031800001', '1610616833', 'GNS', 'Team', 202696, 'Nikola Vučević', 'Nikola', NULL, NULL, '11:38', 2, 2, 1, 0, 0, 0, 0, 0, 0, 2, 3, 5, 2, 1, 0, 0, 0, 4, -3);
+
 
