@@ -31,6 +31,22 @@ public class PlayerGameStats {
     private String pts;
     private String plusMinus;
 
+    // Additional player info
+    private String jersey;
+    private String position;
+    private String height;
+    private String weight;
+    private String draftYear;
+    private String draftRound;
+    private String draftNumber;
+    private String gameDate;
+    private String seasonAvgPts;
+    private String seasonAvgReb;
+    private String seasonAvgAst;
+    private int gamesPlayed;
+    private double gameScore;
+    private int teamPtsRank;
+
     // Getters and Setters
     public String getGameId() { return gameId; }
     public void setGameId(String gameId) { this.gameId = gameId; }
@@ -90,4 +106,33 @@ public class PlayerGameStats {
     public void setPts(String pts) { this.pts = pts; }
     public String getPlusMinus() { return plusMinus; }
     public void setPlusMinus(String plusMinus) { this.plusMinus = plusMinus; }
+
+    public String getJersey() { return jersey; }
+    public void setJersey(String jersey) { this.jersey = jersey; }
+    public String getPosition() { return position; }
+    public void setPosition(String position) { this.position = position; }
+    public String getHeight() { return height; }
+    public void setHeight(String height) { this.height = height; }
+    public String getWeight() { return weight; }
+    public void setWeight(String weight) { this.weight = weight; }
+    public String getDraftYear() { return draftYear; }
+    public void setDraftYear(String draftYear) { this.draftYear = draftYear; }
+    public String getDraftRound() { return draftRound; }
+    public void setDraftRound(String draftRound) { this.draftRound = draftRound; }
+    public String getDraftNumber() { return draftNumber; }
+    public void setDraftNumber(String draftNumber) { this.draftNumber = draftNumber; }
+    public String getGameDate() { return gameDate; }
+    public void setGameDate(String gameDate) { this.gameDate = gameDate; }
+    public String getSeasonAvgPts() { return seasonAvgPts; }
+    public void setSeasonAvgPts(String seasonAvgPts) { this.seasonAvgPts = seasonAvgPts; }
+    public String getSeasonAvgReb() { return seasonAvgReb; }
+    public void setSeasonAvgReb(String seasonAvgReb) { this.seasonAvgReb = seasonAvgReb; }
+    public String getSeasonAvgAst() { return seasonAvgAst; }
+    public void setSeasonAvgAst(String seasonAvgAst) { this.seasonAvgAst = seasonAvgAst; }
+    public int getGamesPlayed() { return gamesPlayed; }
+    public void setGamesPlayed(int gamesPlayed) { this.gamesPlayed = gamesPlayed; }
+    public double getGameScore() { return gameScore; }
+    public void setGameScore(double gameScore) { this.gameScore = gameScore; }
+    public int getTeamPtsRank() { return teamPtsRank; }
+    public void setTeamPtsRank(int teamPtsRank) { this.teamPtsRank = teamPtsRank; }
 }
