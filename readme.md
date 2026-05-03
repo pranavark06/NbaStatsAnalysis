@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/logo.png" alt="Logo" width="400" height="400" />
+<img src="https://github.com/thespcrewroy/4370/blob/main/assets/logo.jpeg" alt="Logo" width="400" height="400" />
 <p align="center">
 <a href="https://github.com/tylernlyons/MicroBlogger/graphs/framework"><img alt="MySQL" src="https://img.shields.io/badge/MySQL-v8.0-red.svg" height="20"/></a>
 <a href="https://github.com/tylernlyons/MicroBlogger/graphs/framework"><img alt="Java" src="https://img.shields.io/badge/Java-v21.0.8-green.svg" height="20"/></a>
