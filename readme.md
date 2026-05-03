@@ -10,19 +10,16 @@
 
 </p>
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#contributors)
+## Deliverables
 
-## Thanks to all our Contributors!
+### Team Members
+- Tyler Lyons
+- Pranav Arkatala
+- Neil Correria
+- SriRam Surisetty
+- Swapnil Roy
 
-|     Contribution         |    Member Name     |                                    Description                                      |
-| ------------------------ | ------------------ | ----------------------------------------------------------------------------------- |
-| Login/Signup             | `Tyler L.`         | `Users can sign up and log into the web app with using hashed passwords`            |
-| Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`          |
-| F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                     |
-| F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
-
-
-Database name: sports
+Database `sports`
 Database username: root
 Database password: mysqlpass
 
@@ -31,6 +28,18 @@ user: jdoe password: johnsSSPW
 user: jsmith password: janesSSPW
 user: mjones password: mikesSSPW
 
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#contributors)
+
+## Thanks to all our Contributors!
+
+|     Contribution         |    Member Name     |                                    Description                                                                       |
+| ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Login/Signup             | `Tyler L.`         | `Users can sign up and log into the web app with using hashed passwords`                                             |
+| Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`                                           |
+| F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
+( Readme.txt               |
+| Readme.md                | 'Swapnil R.`       | `Readme.md styling and issue tracking, ensuring deliverables were met`                                               |
+| F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#running)
 
