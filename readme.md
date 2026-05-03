@@ -65,13 +65,13 @@
 | prelim.pdf               | `Swap R.`          | `Preliminary ER Diagram`                                                                                             |
 | db_design.pdf            | `Swap R.`          | `ER Diagram`                                                                                                         |
 | db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
-| ddl.sql                  | `Tyler L.`         | `Digested data by filtering raw kaggle data and seeded the database with SQL DDL statements`                         |
+| ddl.sql                  | `Tyler L.`         | `Digested data by filtering raw kaggle data and seeded the database with SQL DDL`                                    |
 | queries.sql              | `TBD`              | `TBD`                                                                                                                |
 | data.sql                 | `TBD`              | `TBD`                                                                                                                |
 | datasource.txt           | `TBD`              | `TBD`                                                                                                                |
 | perf.txt                 | `Neil C.`          | `TBD`                                                                                                                |
 | security.txt             | `Tyler L.`         | `Implemented user login using hashed passwords.`                                                                     |
-| security.txt             | `Tyler L.`         | `Documented user login best OWASP security practices to prevent against injection attacks.`                          |
+| security.txt             | `Tyler L.`         | `Documented user login best OWASP security practices to prevent against sql injection.`                              |
 | Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`                                                                |
 | Readme.txt               | `Swap R.`          | `Technology, 3rd Party, and setup instructions`                                                                      |
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
