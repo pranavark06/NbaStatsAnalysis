@@ -50,6 +50,18 @@ body {
         );
 }
 
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+}
+
 .page-shell {
     position: relative;
     max-width: 560px;
@@ -76,10 +88,6 @@ body {
 .form-shell {
     max-width: 620px;
     padding: 2.35rem;
-}
-
-.wide-shell {
-    max-width: 900px;
 }
 
 header {
@@ -136,21 +144,6 @@ input {
     transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-select {
-    width: 100%;
-    margin-top: 0.5rem;
-    padding: 0.98rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: var(--input-bg);
-    color: var(--text);
-    font: inherit;
-}
-
-button.button {
-    font: inherit;
-}
-
 input:focus {
     outline: none;
     border-color: rgba(31, 106, 92, 0.55);
@@ -184,6 +177,10 @@ input::placeholder {
     cursor: pointer;
     transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
     box-shadow: 0 12px 28px rgba(38, 35, 29, 0.14);
+}
+
+button.button {
+    font: inherit;
 }
 
 .button:hover,
@@ -253,53 +250,6 @@ input::placeholder {
     font-weight: 700;
 }
 
-.ranking-form {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(8rem, 0.45fr);
-    gap: 0 1rem;
-}
-
-.ranking-form .button-group {
-    grid-column: 1 / -1;
-}
-
-.ranking-row {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 3.5rem minmax(0, 1fr) minmax(16rem, 0.75fr);
-    gap: 1rem;
-    align-items: center;
-    margin-top: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.58);
-}
-
-.rank-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff8f1;
-    font-weight: 800;
-}
-
-.rank-main p {
-    margin: 0.2rem 0;
-}
-
-.rank-stats {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.4rem;
-    color: var(--muted);
-    font-size: 0.94rem;
-}
 
 @media (max-width: 640px) {
     body {
@@ -320,13 +270,460 @@ input::placeholder {
     .button {
         width: 100%;
     }
+}
 
-    .ranking-form,
-    .ranking-row {
-        grid-template-columns: 1fr;
-    }
+/* Games Page Styles */
+.filters {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
 
-    .rank-stats {
-        grid-template-columns: 1fr;
-    }
+.filters label {
+    margin: 0;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.filters select {
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--input-bg);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+    min-width: 180px;
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(31, 106, 92, 0.12);
+}
+
+.games-list {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.game-card {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 242, 0.7));
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 200ms ease;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(31, 106, 92, 0.15);
+    border-color: rgba(31, 106, 92, 0.3);
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+.game-date {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: rgba(31, 106, 92, 0.08);
+    border-radius: 999px;
+}
+
+.game-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.game-teams .team {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: background 200ms ease, transform 150ms ease;
+}
+
+.game-teams .team:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.01);
+}
+
+.game-teams .team.W {
+    border-left: 4px solid var(--success-text);
+    background: linear-gradient(90deg, rgba(32, 86, 58, 0.08), rgba(255, 255, 255, 0.6));
+}
+
+.game-teams .team.L {
+    border-left: 4px solid var(--error-text);
+    background: linear-gradient(90deg, rgba(126, 45, 33, 0.08), rgba(255, 255, 255, 0.6));
+}
+
+.team-abbr {
+    font-weight: 800;
+    font-size: 1.25rem;
+    min-width: 45px;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.team-name {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.team-score {
+    font-size: 1.75rem;
+    font-weight: 800;
+    font-family: var(--serif);
+    color: var(--text);
+    min-width: 40px;
+    text-align: right;
+}
+
+.game-teams .vs {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+}
+
+.game-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 0.5rem;
+}
+
+.result {
+    font-weight: 500;
+}
+
+.season-type {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(31, 106, 92, 0.12), rgba(31, 106, 92, 0.06));
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.game-card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    box-shadow: 0 4px 12px rgba(31, 106, 92, 0.25);
+}
+
+.game-card .btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(31, 106, 92, 0.35);
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--muted);
+    background: var(--panel);
+    border-radius: 20px;
+    border: 1px dashed var(--line);
+}
+
+.no-results p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Game Detail Page Styles */
+.game-detail {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.game-header h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+}
+
+.scoreboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 22px;
+    background: var(--panel-strong);
+    margin-bottom: 2rem;
+}
+
+.scoreboard .team {
+    flex: 1;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.scoreboard .team.home {
+    border-top: 4px solid var(--primary);
+}
+
+.scoreboard .team.away {
+    border-top: 4px solid var(--secondary);
+}
+
+.scoreboard .team-info h3 {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    margin: 0 0 0.25rem;
+}
+
+.scoreboard .team-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.scoreboard .score {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--serif);
+    margin: 1rem 0;
+}
+
+.scoreboard .result-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.scoreboard .result-badge.W {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.scoreboard .result-badge.L {
+    background: var(--error-bg);
+    color: var(--error-text);
+}
+
+.scoreboard .vs {
+    font-size: 1.5rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.game-stats {
+    margin-bottom: 2rem;
+}
+
+.game-stats h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stats-section {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 16px;
+    background: var(--panel);
+}
+
+.stats-section h4 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+    color: var(--primary);
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table tr {
+    border-bottom: 1px solid var(--line);
+}
+
+.stats-table tr:last-child {
+    border-bottom: none;
+}
+
+.stats-table td {
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+}
+
+.stats-table td:first-child {
+    color: var(--muted);
+}
+
+.stats-table td:nth-child(2) {
+    text-align: center;
+}
+
+.stats-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+
+.game-meta {
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.game-meta p {
+    margin: 0.25rem 0;
+}
+
+.actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Player Game Stats Table */
+.player-stats-section {
+    margin-bottom: 2rem;
+}
+
+.player-stats-section h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+}
+
+.player-stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.player-stats-table thead tr {
+    background: var(--primary);
+    color: #fff;
+}
+
+.player-stats-table th {
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    cursor: help;
+}
+
+.player-stats-table th[title] {
+    text-decoration: underline dotted rgba(255, 255, 255, 0.5);
+    text-underline-offset: 3px;
+}
+
+.player-stats-table th:first-child {
+    text-align: left;
+    padding-left: 0.85rem;
+}
+
+.player-stats-table td {
+    padding: 0.55rem 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.player-stats-table tbody tr:hover {
+    background: rgba(31, 106, 92, 0.06);
+}
+
+.player-stats-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.player-name-cell {
+    text-align: left !important;
+    padding-left: 0.85rem !important;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.pts-cell {
+    font-weight: 700;
+    color: var(--primary);
 }
