@@ -14,12 +14,12 @@
 
 ## Thanks to all our Contributors!
 
-|     Contribution         |    Member Name        |                                    Description                                      |
-| ------------------------ | --------------------- | ----------------------------------------------------------------------------------- |
-| Login/Signup             | `Tyler Lyons`         | `Users can sign up and log into the web app with using hashed passwords`            |
-| Data Digest (ddl.sql)    | `Tyler Lyons`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`          |
-| F1: Draft Explore        | `Tyler Lyons`         | `Built a draft search page where users can look up draft picks`                     |
-| F2: View Games           | `Pranav Arkatala`     | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
+|     Contribution         |    Member Name     |                                    Description                                      |
+| ------------------------ | ------------------ | ----------------------------------------------------------------------------------- |
+| Login/Signup             | `Tyler L.`         | `Users can sign up and log into the web app with using hashed passwords`            |
+| Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`          |
+| F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                     |
+| F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 
 
 Database name: sports
