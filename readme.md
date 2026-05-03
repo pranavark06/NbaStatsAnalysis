@@ -64,9 +64,13 @@
 | Login/Signup             | `Tyler L.`         | `Users can sign up and log into the web app with using hashed passwords`                                             |
 | Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`                                           |
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
-| Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`
-| Readme.txt                | `Swapnil R.`      | `Technology, 3rd Party, and                                                |
+| Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`                                                                |
+| Readme.txt               | `Swapnil R.`       | `Technology, 3rd Party, and setup instructions`                                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
+
+<p align="center">
+  [GROUP CONTRIBUTION FORM PLACEHOLDER]
+</p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#dependencies)
 
@@ -86,6 +90,7 @@ Apache Maven 3.9.11
 ```
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#project-structure)
+
 ## Project Structure
 
 ### Database
@@ -175,6 +180,20 @@ Added Rows:
 ```console
 exit
 ```
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#why-us)
+## Why *CourtVision*? - Our Pitch
+
+The project is in the sports analytics domain, specifically focused on NBA basketball data. Basketball analysts and fans often need to search across large amounts of game, team, player, and draft information. However, raw datasets are difficult to explore directly through SQL files or spreadsheets.
+
+The problem this application addresses is making NBA data easier to access, search, compare, and understand through a web interface. Instead of manually querying a database, users can log in and explore meaningful basketball information such as game results, player game statistics, team rankings, and draft history through organized pages backed by a MySQL database.
+
+[SOULUTION + INTERFACE DISCUSSION PLACEHOLDER]
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#er-diagram)
+## ER Diagram
+
+[PLACEHOLDER ER DIGRAM]
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
 
