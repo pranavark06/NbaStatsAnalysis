@@ -100,7 +100,6 @@ SOURCE /tmp/data.sql;
 ```
 
 **7. Quick Sanity Check** <br>
-
 ```sql
 USE sports;
 SHOW TABLES;
