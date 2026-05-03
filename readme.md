@@ -32,7 +32,7 @@ user: jsmith password: janesSSPW
 user: mjones password: mikesSSPW
 
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)](#running)
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#running)
 
 ## Installation
 
@@ -61,31 +61,23 @@ docker run --name mysql-server-x370 \
   -d mysql:8.1.0
 ```
 
-**2. Check Networking Settings** (should be a mapping from 3306 to 33306 on the tcp port)
-```console
-docker container inspect <container_id> --format '{{.NetworkSettings.Ports}}'
-```
-
-**3. Clone the Git Repo**
+**2. Clone the Git Repo**
 ```console
 git clone https://github.com/tylernlyons/P2_micro_blogging
 ```
 
-**4. Head to the Project Filder**
+**3. Head to the Project Filder**
 ```console
 cd  /local/path/to/P2_micro_blogging/P2_micro_blogging
 ```
 
-**5. Make Sure the MySQL Container is Running with the Correct Port Mapping**
+**4. Copy the SQL Files Into the Container**
 ```console
-docker ps
-```
-**6. Copy the SQL Files Into the Container**
-```console
-docker cp \local\path\to\database_setup.sql <container_id>:/tmp/
+docker cp ddl.sql mysql-server-x370:/tmp/ddl.sql
+docker cp data.sql mysql-server-x370:/tmp/data.sql
 ```
 
-**7. Open MySQL Inside Docker**
+**5. Open MySQL Inside Docker**
 ```console
 docker exec -it <container_id> bash
 mysql -u root -p
@@ -95,12 +87,40 @@ Password:
 mysqlpass
 ```
 
-**8. Create/Import the Database**
-```console
-mysql -u root -p csx370_mb_platform < /tmp/database_setup.sql
+**6. Create/Import the Database** <br>
+
+inside the `mysql>` prompt:
+```sql
+DROP DATABASE IF EXISTS sports;
+CREATE DATABASE sports;
+USE sports;
+
+SOURCE /tmp/ddl.sql;
+SOURCE /tmp/data.sql;
 ```
 
-**9. Exit**
+**7. Quick Sanity Check** <br>
+
+Check for 13 rows:
+```
+USE sports;
+SHOW TABLES;
+```
+
+<p align="center">
+  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/assets/tables.png" alt="Imported Tables" width="400" 
+/>
+
+Added Rows:
+* Pranav Artakla: `player_game_stats`
+
+```
+SELECT COUNT(*) FROM game;
+SELECT COUNT(*) FROM player_game_stats;
+SELECT COUNT(*) FROM users;
+```
+
+**8. Exit**
 ```console
 exit
 ```
@@ -127,7 +147,7 @@ Open the browser and navigate to the following URL: ```http://localhost:8081/```
 Create an account and login!
 
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png)](#resources)
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#resources)
 
 ## External Resources & Leranings
 
