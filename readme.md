@@ -12,7 +12,7 @@
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#team)
 
-## Group 16 Team Members
+## Team Members (Group 16)
 <table align="center">
   <tr>
     <td align="center">
