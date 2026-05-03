@@ -7,8 +7,24 @@
 <a href="https://github.com/tylernlyons/MicroBlogger/graphs/framework"><img alt="Pulls" src="https://img.shields.io/badge/pull%20requests-1-yellow.svg" height="20"/></a>
 <a href="https://github.com/tylernlyons/MicroBlogger/graphs/framework"><img alt="Issues" src="https://img.shields.io/badge/issues-0-orange.svg" height="20"/></a>
 <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="License: CC BY-NC-ND 4.0" src="https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg" height="20"/></a>
-
 </p>
+
+
+<p align="center">
+  <b>A sports analytics platform for exploring NBA games, team rankings, draft history, and player performance data.</b></br>
+  <sub>Use this platform to search basketball data, review game results, compare team standings, and explore draft records through database-driven pages. Built for a clean and practical sports analysis experience, this project highlights full-stack development with real-world features like authentication, searchable records, detailed game views, rankings, SQL joins, aggregation queries, and MySQL-backed data..<sub>
+</p>
+
+<br />
+
+<div align="center">
+  [PLACEHOLDER DEMO]
+  <p><b>CSCI x370 Microblogging Platform Demo</b></p>
+</div>
+
+- **Simple:** Intuitive and easy to use, with a clean interface for browsing games, rankings, draft records, and player statistics.
+- **Powerful:** Feature-rich functionality including login, signup, game details, team rankings, draft exploration, and database-backed search.
+- **Practical:** A complete full-stack project that demonstrates real-world Spring Boot, JDBC, MySQL, and web application design.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#team)
 
