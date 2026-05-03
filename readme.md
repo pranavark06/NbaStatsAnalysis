@@ -101,24 +101,17 @@ SOURCE /tmp/data.sql;
 
 **7. Quick Sanity Check** <br>
 
-Check for 13 rows:
-```
+```sql
 USE sports;
 SHOW TABLES;
 ```
 
 <p align="center">
-  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/assets/tables.png" alt="Imported Tables" width="400" 
+  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/tables.png" alt="Imported Tables" width="300" 
 />
 
 Added Rows:
 * Pranav Artakla: `player_game_stats`
-
-```
-SELECT COUNT(*) FROM game;
-SELECT COUNT(*) FROM player_game_stats;
-SELECT COUNT(*) FROM users;
-```
 
 **8. Exit**
 ```console
