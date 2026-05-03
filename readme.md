@@ -23,7 +23,7 @@
 </div>
 
 - **Simple:** Intuitive and easy to use, with a clean interface for browsing games, rankings, draft records, and player statistics.
-- **Powerful:** Feature-rich functionality including login, signup, game details, team rankings, draft exploration, and database-backed search.
+- **Powerful:** Feature-rich functionality:  login, signup, game details, team rankings, draft exploration, and database-backed search.
 - **Practical:** A complete full-stack project that demonstrates real-world Spring Boot, JDBC, MySQL, and web application design.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#team)
