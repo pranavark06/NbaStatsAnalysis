@@ -13,11 +13,30 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#team)
 
 ## Group 16 Team Members
-- Tyler Lyons
-- Pranav Arkatala
-- Neil Correria
-- SriRam Surisetty
-- Swapnil Roy
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="assets/neil.png" width="160"><br>
+      Neil
+    </td>
+    <td align="center">
+      <img src="assets/pranav.jpeg" width="160"><br>
+      Pranav
+    </td>
+    <td align="center">
+      <img src="assets/sriram.png" width="160"><br>
+      Sriram
+    </td>
+    <td align="center">
+      <img src="assets/swapnil.png" width="160"><br>
+      Swapnil
+    </td>
+    <td align="center">
+      <img src="assets/tyler.png" width="160"><br>
+      Tyler
+    </td>
+  </tr>
+</table>
 
 
 
