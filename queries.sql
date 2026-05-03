@@ -107,3 +107,27 @@ SELECT ROW_NUMBER() OVER (
        point_diff
 FROM team_totals
 ORDER BY rank_number;
+
+-- Purpose: This query will get the game details as well as player statistics for each game for regular season , playoffs, as well as the all star game
+-- URL path: GET /games
+SELECT pgs.GAME_ID, pgs.TEAM_ID, pgs.TEAM_ABBREVIATION, pgs.TEAM_CITY,
+						pgs.PLAYER_ID,
+						COALESCE(p.FULL_NAME, pgs.PLAYER_NAME) AS PLAYER_NAME,
+						pgs.NICKNAME, pgs.START_POSITION,
+						pgs.COMMENT, pgs.MIN, pgs.FGM, pgs.FGA, pgs.FG_PCT, pgs.FG3M,
+						pgs.FG3A, pgs.FG3_PCT, pgs.FTM, pgs.FTA, pgs.FT_PCT, pgs.OREB, pgs.DREB,
+						pgs.REB, pgs.AST, pgs.STL, pgs.BLK, pgs.TTO, pgs.PF, pgs.PTS, pgs.PLUS_MINUS
+				FROM player_game_stats pgs
+				LEFT JOIN player p
+					ON pgs.PLAYER_ID = p.id
+				WHERE pgs.GAME_ID = ? AND pgs.TEAM_ID = ?
+				ORDER BY CAST(COALESCE(NULLIF(pgs.PTS, ''), '0') AS UNSIGNED) DESC
+    
+SELECT * FROM game ORDER BY game_date DESC LIMIT 100
+    
+SELECT * FROM game WHERE team_abbreviation_home = ? OR team_abbreviation_away = ? ORDER BY game_date DESC";
+
+SELECT * FROM game WHERE game_date BETWEEN ? AND ? ORDER BY game_date DESC
+
+SELECT DISTINCT team_abbreviation_home FROM game ORDER BY team_abbreviation_home
+
