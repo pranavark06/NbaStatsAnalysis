@@ -1,0 +1,223 @@
+{{> head}}
+{{> header}}
+{{> alerts}}
+
+<main>
+    <div class="container">
+        <div class="game-detail">
+            <div class="game-header">
+                <h2>{{game.matchupHome}}</h2>
+                <span class="season-type">{{game.seasonType}}</span>
+                <div class="game-date">{{game.gameDate}}</div>
+            </div>
+
+            <div class="scoreboard">
+                <div class="team home {{game.wlHome}}">
+                    <div class="team-info">
+                        <h3>{{game.teamAbbreviationHome}}</h3>
+                        <p>{{game.teamNameHome}}</p>
+                    </div>
+                    <div class="score">{{game.ptsHome}}</div>
+                    <div class="result-badge {{game.wlHome}}">{{game.wlHome}}</div>
+                </div>
+                <div class="vs">-</div>
+                <div class="team away {{game.wlAway}}">
+                    <div class="team-info">
+                        <h3>{{game.teamAbbreviationAway}}</h3>
+                        <p>{{game.teamNameAway}}</p>
+                    </div>
+                    <div class="score">{{game.ptsAway}}</div>
+                    <div class="result-badge {{game.wlAway}}">{{game.wlAway}}</div>
+                </div>
+            </div>
+
+            <div class="game-stats">
+                <h3>Box Score</h3>
+                
+                <div class="stats-section">
+                    <h4>{{game.teamAbbreviationHome}} Statistics</h4>
+                    <table class="stats-table">
+                        <tr><td>Field Goals</td><td>{{game.fgmHome}} / {{game.fgaHome}}</td><td>{{game.fgPctHome}}%</td></tr>
+                        <tr><td>3-Pointers</td><td>{{game.fg3mHome}} / {{game.fg3aHome}}</td><td>{{game.fg3PctHome}}%</td></tr>
+                        <tr><td>Free Throws</td><td>{{game.ftmHome}} / {{game.ftaHome}}</td><td>{{game.ftPctHome}}%</td></tr>
+                        <tr><td>Rebounds</td><td colspan="2">{{game.rebHome}} ({{game.orebHome}} O, {{game.drebHome}} D)</td></tr>
+                        <tr><td>Assists</td><td colspan="2">{{game.astHome}}</td></tr>
+                        <tr><td>Steals</td><td colspan="2">{{game.stlHome}}</td></tr>
+                        <tr><td>Blocks</td><td colspan="2">{{game.blkHome}}</td></tr>
+                        <tr><td>Turnovers</td><td colspan="2">{{game.tovHome}}</td></tr>
+                        <tr><td>Personal Fouls</td><td colspan="2">{{game.pfHome}}</td></tr>
+                    </table>
+                </div>
+
+                <div class="stats-section">
+                    <h4>{{game.teamAbbreviationAway}} Statistics</h4>
+                    <table class="stats-table">
+                        <tr><td>Field Goals</td><td>{{game.fgmAway}} / {{game.fgaAway}}</td><td>{{game.fgPctAway}}%</td></tr>
+                        <tr><td>3-Pointers</td><td>{{game.fg3mAway}} / {{game.fg3aAway}}</td><td>{{game.fg3PctAway}}%</td></tr>
+                        <tr><td>Free Throws</td><td>{{game.ftmAway}} / {{game.ftaAway}}</td><td>{{game.ftPctAway}}%</td></tr>
+                        <tr><td>Rebounds</td><td colspan="2">{{game.rebAway}} ({{game.orebAway}} O, {{game.drebAway}} D)</td></tr>
+                        <tr><td>Assists</td><td colspan="2">{{game.astAway}}</td></tr>
+                        <tr><td>Steals</td><td colspan="2">{{game.stlAway}}</td></tr>
+                        <tr><td>Blocks</td><td colspan="2">{{game.blkAway}}</td></tr>
+                        <tr><td>Turnovers</td><td colspan="2">{{game.tovAway}}</td></tr>
+                        <tr><td>Personal Fouls</td><td colspan="2">{{game.pfAway}}</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="player-stats-section">
+                <h3>Player Statistics</h3>
+
+                <div class="stats-section">
+                    <h4>{{game.teamAbbreviationHome}} - {{game.teamNameHome}}</h4>
+                    <div class="table-responsive">
+                        <table class="player-stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Player</th>
+                                    <th>MIN</th>
+                                    <th>PTS</th>
+                                    <th>FGM</th>
+                                    <th>FGA</th>
+                                    <th>FG%</th>
+                                    <th>3PM</th>
+                                    <th>3PA</th>
+                                    <th>3P%</th>
+                                    <th>FTM</th>
+                                    <th>FTA</th>
+                                    <th>FT%</th>
+                                    <th>OREB</th>
+                                    <th>DREB</th>
+                                    <th>REB</th>
+                                    <th>AST</th>
+                                    <th>STL</th>
+                                    <th>BLK</th>
+                                    <th>TO</th>
+                                    <th>PF</th>
+                                    <th>+/-</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#homePlayerStats}}
+                                <tr>
+                                    <td class="player-name-cell">{{playerName}}</td>
+                                    <td>{{min}}</td>
+                                    <td class="pts-cell">{{pts}}</td>
+                                    <td>{{fgm}}</td>
+                                    <td>{{fga}}</td>
+                                    <td>{{fgPct}}</td>
+                                    <td>{{fg3m}}</td>
+                                    <td>{{fg3a}}</td>
+                                    <td>{{fg3Pct}}</td>
+                                    <td>{{ftm}}</td>
+                                    <td>{{fta}}</td>
+                                    <td>{{ftPct}}</td>
+                                    <td>{{oreb}}</td>
+                                    <td>{{dreb}}</td>
+                                    <td>{{reb}}</td>
+                                    <td>{{ast}}</td>
+                                    <td>{{stl}}</td>
+                                    <td>{{blk}}</td>
+                                    <td>{{tto}}</td>
+                                    <td>{{pf}}</td>
+                                    <td>{{plusMinus}}</td>
+                                </tr>
+                                {{/homePlayerStats}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h4>{{game.teamAbbreviationAway}} - {{game.teamNameAway}}</h4>
+                    <div class="table-responsive">
+                        <table class="player-stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Player</th>
+                                    <th>MIN</th>
+                                    <th>PTS</th>
+                                    <th>FGM</th>
+                                    <th>FGA</th>
+                                    <th>FG%</th>
+                                    <th>3PM</th>
+                                    <th>3PA</th>
+                                    <th>3P%</th>
+                                    <th>FTM</th>
+                                    <th>FTA</th>
+                                    <th>FT%</th>
+                                    <th>OREB</th>
+                                    <th>DREB</th>
+                                    <th>REB</th>
+                                    <th>AST</th>
+                                    <th>STL</th>
+                                    <th>BLK</th>
+                                    <th>TO</th>
+                                    <th>PF</th>
+                                    <th>+/-</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#awayPlayerStats}}
+                                <tr>
+                                    <td class="player-name-cell">{{playerName}}</td>
+                                    <td>{{min}}</td>
+                                    <td class="pts-cell">{{pts}}</td>
+                                    <td>{{fgm}}</td>
+                                    <td>{{fga}}</td>
+                                    <td>{{fgPct}}</td>
+                                    <td>{{fg3m}}</td>
+                                    <td>{{fg3a}}</td>
+                                    <td>{{fg3Pct}}</td>
+                                    <td>{{ftm}}</td>
+                                    <td>{{fta}}</td>
+                                    <td>{{ftPct}}</td>
+                                    <td>{{oreb}}</td>
+                                    <td>{{dreb}}</td>
+                                    <td>{{reb}}</td>
+                                    <td>{{ast}}</td>
+                                    <td>{{stl}}</td>
+                                    <td>{{blk}}</td>
+                                    <td>{{tto}}</td>
+                                    <td>{{pf}}</td>
+                                    <td>{{plusMinus}}</td>
+                                </tr>
+                                {{/awayPlayerStats}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-meta">
+                <p>Game ID: {{game.gameId}}</p>
+                <p>Season: {{game.seasonId}}</p>
+                <p>Minutes: {{game.min}}</p>
+            </div>
+
+            <div class="actions">
+                <a href="/games" class="btn">Back to Games</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateEl = document.querySelector('.game-date');
+    if (dateEl) {
+        const date = new Date(dateEl.textContent);
+        dateEl.textContent = date.toLocaleDateString('en-US', { 
+            weekday: 'long',
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        });
+    }
+});
+</script>
+
+</body>
+</html>

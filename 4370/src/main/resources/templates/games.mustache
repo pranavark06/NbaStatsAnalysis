@@ -1,0 +1,90 @@
+{{> head}}
+{{> header}}
+{{> alerts}}
+
+<main>
+    <div class="container">
+        <div class="filters">
+            <label for="teamFilter">Filter by Team:</label>
+            <select id="teamFilter" onchange="filterByTeam(this.value)">
+                <option value="">All Teams</option>
+                {{#teams}}
+                <option value="{{.}}">{{.}}</option>
+                {{/teams}}
+            </select>
+        </div>
+
+        <div class="games-list">
+            {{#games}}
+            <div class="game-card" data-team-home="{{teamAbbreviationHome}}" data-team-away="{{teamAbbreviationAway}}">
+                <div class="game-date">{{gameDate}}</div>
+                <div class="game-teams">
+                    <div class="team home {{wlHome}}">
+                        <span class="team-abbr">{{teamAbbreviationHome}}</span>
+                        <span class="team-name">{{teamNameHome}}</span>
+                        <span class="team-score">{{ptsHome}}</span>
+                    </div>
+                    <div class="vs">vs</div>
+                    <div class="team away {{wlAway}}">
+                        <span class="team-abbr">{{teamAbbreviationAway}}</span>
+                        <span class="team-name">{{teamNameAway}}</span>
+                        <span class="team-score">{{ptsAway}}</span>
+                    </div>
+                </div>
+                <div class="game-result">
+                    <span class="result">{{matchupHome}}</span>
+                    <span class="season-type">{{seasonType}}</span>
+                </div>
+                <a href="/game/{{gameId}}" class="btn btn-small">View Details</a>
+            </div>
+            {{/games}}
+        </div>
+
+        {{^games}}
+        <div class="no-results">
+            <p>No games found.</p>
+        </div>
+        {{/games}}
+    </div>
+</main>
+
+{{> footer}}
+
+<script>
+function filterByTeam(team) {
+    if (!team) {
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.style.display = '';
+        });
+        return;
+    }
+    
+    document.querySelectorAll('.game-card').forEach(card => {
+        const homeTeam = card.getAttribute('data-team-home');
+        const awayTeam = card.getAttribute('data-team-away');
+        
+        if (homeTeam === team || awayTeam === team) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Format dates on page load
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.game-date').forEach(function(el) {
+        const date = new Date(el.textContent);
+        el.textContent = date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    });
+});
+</script>
+
+</body>
+</html>
