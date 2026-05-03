@@ -61,12 +61,24 @@
 
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| Login/Signup             | `Tyler L.`         | `Users can sign up and log into the web app with using hashed passwords`                                             |
-| Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`                                           |
-| F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
+| prelim.pdf               | `TBD`              | `TBD`                                                                                                                |
+| prelim.pdf               | `Swap R.`          | `Preliminary ER Diagram`                                                                                             |
+| db_design.pdf            | `Swap R.`          | `ER Diagram`                                                                                                         |
+| db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
+| ddl.sql                  | `Tyler L.`         | `Digested data by filtering raw kaggle data and seeded the database with SQL DDL`                                    |
+| queries.sql              | `TBD`              | `TBD`                                                                                                                |
+| data.sql                 | `TBD`              | `TBD`                                                                                                                |
+| datasource.txt           | `TBD`              | `TBD`                                                                                                                |
+| perf.txt                 | `Neil C.`          | `TBD`                                                                                                                |
+| security.txt             | `Tyler L.`         | `Implemented user login using hashed passwords.`                                                                     |
+| security.txt             | `Tyler L.`         | `Documented user login best OWASP security practices to prevent against sql injection.`                              |
 | Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`                                                                |
 | Readme.txt               | `Swap R.`          | `Technology, 3rd Party, and setup instructions`                                                                      |
+| F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
+| F3: ML/DS Feature        | `Swap R.`          | `TBD`                                                                                                                |
+| F4: TBD                  | `Neil C.`          | `TBD`                                                                                                                |
+| F5: TBD                  | `SriRam S.`        | `TBD`                                                                                                                |
 
 <p align="center">
   [GROUP CONTRIBUTION FORM PLACEHOLDER]
