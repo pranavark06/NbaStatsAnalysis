@@ -37,8 +37,9 @@ public class RankingsController {
         model.addAttribute("title", "Team Rankings");
         model.addAttribute("pageTitle", "Team Rankings");
         model.addAttribute("pageSubtitle", "Rank NBA teams by regular season wins and scoring margin.");
+        final String currentSeason = selectedSeason;
         model.addAttribute("seasons", seasons.stream()
-                .map(value -> new SeasonOption(value, value.equals(selectedSeason)))
+                .map(value -> new SeasonOption(value, value.equals(currentSeason)))
                 .toList());
         model.addAttribute("selectedSeason", selectedSeason);
         model.addAttribute("minGames", safeMinGames);
