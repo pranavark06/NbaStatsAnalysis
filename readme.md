@@ -118,28 +118,6 @@ Added Rows:
 exit
 ```
 
-### Running on OSX/Unix
-```bash
-mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=8081'
-```
-
-### Running on Windows CmdLine
-```sh
-mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081"
-```
-
-### Running on Windows PowerShell
-```shell
-mvn spring-boot:run --% -Dspring-boot.run.arguments="--server.port=8081"
-```
-
-### Using the Application
-
-Open the browser and navigate to the following URL: ```http://localhost:8081/```<br>
-
-Create an account and login!
-
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#resources)
 
 ## External Resources & Leranings
