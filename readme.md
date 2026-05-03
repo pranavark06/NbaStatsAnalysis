@@ -65,7 +65,7 @@
 | Data Digest (ddl.sql)    | `Tyler L.`         | `Filtered raw kaggle data and seeded the database with SQL DDL statements`                                           |
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
 | Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`                                                                |
-| Readme.txt               | `Swapnil R.`       | `Technology, 3rd Party, and setup instructions`                                                                      |
+| Readme.txt               | `Swap R.`          | `Technology, 3rd Party, and setup instructions`                                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 
 <p align="center">
