@@ -10,14 +10,16 @@
 
 </p>
 
-## Deliverables
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#team)
 
-### Team Members
+## Group 16 Team Members
 - Tyler Lyons
 - Pranav Arkatala
 - Neil Correria
 - SriRam Surisetty
 - Swapnil Roy
+
+
 
 Database `sports`
 Database username: root
@@ -30,7 +32,7 @@ user: mjones password: mikesSSPW
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#contributors)
 
-## Thanks to all our Contributors!
+## Contributions
 
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
