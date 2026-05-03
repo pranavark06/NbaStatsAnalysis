@@ -295,3 +295,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `password_hash` VARCHAR(255) NOT NULL,
     `full_name` VARCHAR(100) NOT NULL
 );
+
+CREATE INDEX idx_game_season_type ON `game` (`season_type`(20), `season_id`(10));
+CREATE INDEX idx_game_rankings_home ON `game` (`season_type`(20), `season_id`(10), `team_id_home`(20), `team_abbreviation_home`(10));
+CREATE INDEX idx_game_rankings_away ON `game` (`season_type`(20), `season_id`(10), `team_id_away`(20), `team_abbreviation_away`(10));

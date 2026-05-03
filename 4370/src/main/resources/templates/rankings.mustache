@@ -1,0 +1,44 @@
+{{> head}}
+<div class="page-shell wide-shell">
+    {{> header}}
+
+    <form method="get" action="/rankings" class="ranking-form">
+        <label for="season">Season ID</label>
+        <select id="season" name="season">
+            {{#seasons}}
+                <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
+            {{/seasons}}
+        </select>
+
+        <label for="minGames">Minimum Games</label>
+        <input id="minGames" name="minGames" type="number" min="1" max="82" value="{{minGames}}"/>
+
+        <div class="button-group">
+            <button class="button primary" type="submit">Update Rankings</button>
+            <a class="button secondary" href="/home">Back Home</a>
+        </div>
+    </form>
+
+    {{#rankings}}
+        <div class="ranking-row">
+            <div class="rank-number">{{rankNumber}}</div>
+            <div class="rank-main">
+                <p class="draft-title">{{teamName}} ({{abbreviation}})</p>
+                <p>{{wins}}-{{losses}} over {{gamesPlayed}} games</p>
+            </div>
+            <div class="rank-stats">
+                <span>Win {{winPct}}</span>
+                <span>PF {{pointsFor}}</span>
+                <span>PA {{pointsAgainst}}</span>
+                <span>Diff {{pointDiff}}</span>
+            </div>
+        </div>
+    {{/rankings}}
+
+    {{^rankings}}
+        <div class="card">
+            <p>No rankings are available for the selected filters.</p>
+        </div>
+    {{/rankings}}
+</div>
+{{> footer}}

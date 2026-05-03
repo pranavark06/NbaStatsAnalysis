@@ -78,6 +78,10 @@ body {
     padding: 2.35rem;
 }
 
+.wide-shell {
+    max-width: 900px;
+}
+
 header {
     position: relative;
     z-index: 1;
@@ -130,6 +134,17 @@ input {
     color: var(--text);
     font: inherit;
     transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+select {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.98rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--input-bg);
+    color: var(--text);
+    font: inherit;
 }
 
 button.button {
@@ -238,6 +253,54 @@ input::placeholder {
     font-weight: 700;
 }
 
+.ranking-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(8rem, 0.45fr);
+    gap: 0 1rem;
+}
+
+.ranking-form .button-group {
+    grid-column: 1 / -1;
+}
+
+.ranking-row {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr) minmax(16rem, 0.75fr);
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.58);
+}
+
+.rank-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff8f1;
+    font-weight: 800;
+}
+
+.rank-main p {
+    margin: 0.2rem 0;
+}
+
+.rank-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
 @media (max-width: 640px) {
     body {
         padding: 18px 12px 28px;
@@ -256,5 +319,14 @@ input::placeholder {
 
     .button {
         width: 100%;
+    }
+
+    .ranking-form,
+    .ranking-row {
+        grid-template-columns: 1fr;
+    }
+
+    .rank-stats {
+        grid-template-columns: 1fr;
     }
 }
