@@ -174,7 +174,7 @@ SHOW TABLES;
 />
 
 Added Rows:
-* Pranav Artakla: `player_game_stats`
+* Pranav Arkatala: `player_game_stats`
 
 **8. Exit**
 ```console
