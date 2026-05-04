@@ -121,8 +121,8 @@ Spring Boot Mustache
 Spring Boot JDBC
 Spring Security Crypto
 MySQL Connector/J
-HTML/CSS
-Vanilla JavaScript
+JDBC (Java Database Connectivity)
+HTML/CSS/JS
 ```
 
 > [!IMPORTANT]\
