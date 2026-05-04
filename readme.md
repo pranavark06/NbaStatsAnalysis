@@ -94,7 +94,7 @@
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 | F3: Matchup Predictor    | `Swap R.`          | `Built a pure Java data science feature that trains a logistic matchup model from SQL-aggregated NBA game data`      |
-| F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential'                                                                                |
+| F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential'   |                                                                            |
 | F5: TBD                  | `SriRam S.`        | `TBD`                                                                                                                |
 
 <p align="center">
