@@ -88,12 +88,11 @@
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | prelim.pdf               | `Swap R.`          | `Described the domain, problem, solution, UIs, technologies, and made the ER Model`                                  |
-| db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
-| db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
+| db_design.pdf            | `Swap R.`          | `Created the ER Model, identified functional dependencies, and normalized model to BCNF form`                        |   
 | ddl.sql                  | `Tyler L.`         | `Leveraged SQL DDL statements to digest raw kaggle data to seed the database`                                        |
-| queries.sql              | `TBD`              | `TBD`                                                                                                                |
-| data.sql                 | `TBD`              | `TBD`                                                                                                                |
-| datasource.txt           | `TBD`              | `TBD`                                                                                                                |
+| queries.sql              | `Tyler L.`         | `Wrote more than 6 sql statements using aggregation, CRUD, and SQL prepared statements`                              |
+| data.sql                 | `Tyler L.`         | `Demonstrated the app as SQL insertions in a file `                                                                  |
+| datasource.txt           | `Pranav A.`        | `Describes the data source and how it was cleaned/generated to be ingested into the tables`                          |
 | perf.txt                 | `Neil C.`          | `Documented queries that used indexing and the difference in time consumption of the queries with and without indexing`                                                                                                               
 | security.txt             | `Tyler L.`         | `Implemented user login using hashed passwords.`                                                                     |
 | security.txt             | `Tyler L.`         | `Documented user login best OWASP security practices to prevent against sql injection.`                              |
