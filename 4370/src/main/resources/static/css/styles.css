@@ -434,6 +434,393 @@ button.button {
     }
 }
 
+/* Rankings Page Styles */
+.rankings-shell {
+    max-width: 920px;
+}
+
+.rankings-control-panel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.45fr);
+    gap: 1.25rem;
+    align-items: end;
+    margin-top: 1.35rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(31, 106, 92, 0.14);
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(255, 250, 242, 0.78)),
+        radial-gradient(circle at top right, rgba(31, 106, 92, 0.1), transparent 28%);
+}
+
+.rankings-season {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.15rem;
+    font-weight: 850;
+}
+
+.rankings-note {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.ranking-form label {
+    margin-top: 0;
+}
+
+.ranking-filter-row {
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 1fr) auto;
+    gap: 0.7rem;
+    align-items: end;
+}
+
+.ranking-filter-row input {
+    min-height: 3.2rem;
+}
+
+.ranking-filter-row .button {
+    min-height: 3.2rem;
+    padding-inline: 1.15rem;
+}
+
+.rankings-nav {
+    margin-top: 1rem;
+}
+
+.rankings-list {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.15rem;
+}
+
+.ranking-card {
+    display: grid;
+    grid-template-columns: 5rem minmax(13rem, 1fr) minmax(25rem, 1.5fr);
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 250, 242, 0.94)),
+        linear-gradient(90deg, rgba(31, 106, 92, 0.1), transparent 35%);
+    box-shadow: 0 12px 32px rgba(58, 45, 29, 0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.ranking-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(31, 106, 92, 0.28);
+    box-shadow: 0 18px 42px rgba(31, 106, 92, 0.13);
+}
+
+.rank-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    border-radius: 16px;
+    background: linear-gradient(160deg, var(--primary), #2d8171);
+    color: #fffaf2;
+}
+
+.rank-badge span {
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.rank-badge small {
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    opacity: 0.78;
+}
+
+.rank-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.rank-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.rank-heading h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.08rem;
+    line-height: 1.25;
+}
+
+.rank-heading span {
+    flex: 0 0 auto;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(201, 109, 68, 0.12);
+    color: var(--secondary);
+    font-size: 0.76rem;
+    font-weight: 850;
+}
+
+.rank-main p {
+    margin: 0.45rem 0 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.rank-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin: 0;
+}
+
+.rank-stats div {
+    min-width: 0;
+    padding: 0.72rem;
+    border: 1px solid rgba(51, 60, 71, 0.08);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.rank-stats dt {
+    margin: 0 0 0.22rem;
+    color: var(--muted);
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.rank-stats dd {
+    margin: 0;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 850;
+}
+
+.ranking-empty-state {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    border-style: dashed;
+}
+
+/* Matchup Predictor Styles */
+.predictor-shell {
+    max-width: 960px;
+}
+
+.predictor-panel,
+.prediction-card,
+.feature-grid,
+.predictor-explainer,
+.predictor-empty-state {
+    position: relative;
+    z-index: 1;
+}
+
+.predictor-panel {
+    margin-top: 1.35rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(31, 106, 92, 0.14);
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(255, 250, 242, 0.78)),
+        radial-gradient(circle at top right, rgba(31, 106, 92, 0.1), transparent 28%);
+}
+
+.predictor-field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.predictor-form select {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.98rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--input-bg);
+    color: var(--text);
+    font: inherit;
+}
+
+.prediction-card {
+    margin-top: 1.35rem;
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 250, 242, 0.94)),
+        linear-gradient(90deg, rgba(31, 106, 92, 0.1), transparent 35%);
+    box-shadow: 0 12px 32px rgba(58, 45, 29, 0.08);
+}
+
+.prediction-matchup {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+
+.prediction-matchup h2 {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    line-height: 1.1;
+}
+
+.prediction-matchup span {
+    display: inline-block;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.predictor-label {
+    margin: 0 0 0.25rem;
+    color: var(--primary);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.prediction-versus {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: rgba(31, 106, 92, 0.1);
+    color: var(--primary);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.probability-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.probability-box {
+    padding: 0.9rem;
+    border: 1px solid rgba(51, 60, 71, 0.08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.probability-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
+}
+
+.probability-heading span,
+.probability-heading strong {
+    color: var(--text);
+    font-weight: 900;
+}
+
+.probability-track {
+    height: 0.85rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(51, 60, 71, 0.08);
+}
+
+.probability-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.probability-fill.home {
+    background: linear-gradient(90deg, var(--primary), #38a28e);
+}
+
+.probability-fill.away {
+    background: linear-gradient(90deg, var(--secondary), #e09a65);
+}
+
+.prediction-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.prediction-summary div,
+.feature-card {
+    min-width: 0;
+    padding: 0.9rem;
+    border: 1px solid rgba(51, 60, 71, 0.08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.prediction-summary h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.prediction-note {
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-weight: 750;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.feature-card strong {
+    display: block;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
+.feature-card span {
+    display: block;
+    margin-top: 0.28rem;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.predictor-explainer {
+    border-style: dashed;
+}
+
+.predictor-explainer p {
+    margin-bottom: 0;
+}
+
 /* Profile Page Styles */
 .profile-shell {
     max-width: 720px;
@@ -552,6 +939,28 @@ button.button {
 
     .draft-meta {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rankings-control-panel,
+    .ranking-card {
+        grid-template-columns: 1fr;
+    }
+
+    .ranking-filter-row,
+    .rank-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .predictor-field-row,
+    .prediction-matchup,
+    .probability-grid,
+    .prediction-summary,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prediction-versus {
+        justify-self: center;
     }
 }
 

@@ -43,7 +43,7 @@ public class GameController {
         model.addAttribute("user", userService.getLoggedInUser());
         model.addAttribute("title", "Games");
         model.addAttribute("pageTitle", "NBA Games");
-        model.addAttribute("pageSubtitle", "Browsing all game results");
+        model.addAttribute("pageSubtitle", "Browsing all game results from the 2018 - 19 NBA season.");
         return "games";
     }
 

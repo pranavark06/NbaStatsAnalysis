@@ -1,43 +1,67 @@
 {{> head}}
-<div class="page-shell wide-shell">
+<div class="page-shell rankings-shell">
     {{> header}}
 
-    <form method="get" action="/rankings" class="ranking-form">
-        <label for="season">Season ID</label>
-        <select id="season" name="season">
-            {{#seasons}}
-                <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
-            {{/seasons}}
-        </select>
-
-        <label for="minGames">Minimum Games</label>
-        <input id="minGames" name="minGames" type="number" min="1" max="82" value="{{minGames}}"/>
-
-        <div class="button-group">
-            <button class="button primary" type="submit">Update Rankings</button>
-            <a class="button secondary" href="/home">Back Home</a>
+    <section class="rankings-control-panel" aria-label="Ranking filters">
+        <div>
+            <p class="rankings-season">{{seasonLabel}}</p>
+            <p class="rankings-note">Adjust this filter to exclude teams with fewer appearances.</p>
         </div>
-    </form>
 
-    {{#rankings}}
-        <div class="ranking-row">
-            <div class="rank-number">{{rankNumber}}</div>
-            <div class="rank-main">
-                <p class="draft-title">{{teamName}} ({{abbreviation}})</p>
-                <p>{{wins}}-{{losses}} over {{gamesPlayed}} games</p>
+        <form method="get" action="/rankings" class="ranking-form">
+            <label for="minGames">Minimum Games</label>
+            <div class="ranking-filter-row">
+                <input id="minGames" name="minGames" type="number" min="1" max="82" value="{{minGames}}"/>
+                <button class="button primary" type="submit">Update</button>
             </div>
-            <div class="rank-stats">
-                <span>Win {{winPct}}</span>
-                <span>PF {{pointsFor}}</span>
-                <span>PA {{pointsAgainst}}</span>
-                <span>Diff {{pointDiff}}</span>
-            </div>
-        </div>
-    {{/rankings}}
+        </form>
+    </section>
+
+    <div class="button-group rankings-nav">
+        <a class="button secondary" href="/home">Back Home</a>
+    </div>
+
+    <div class="rankings-list">
+        {{#rankings}}
+            <article class="ranking-card">
+                <div class="rank-badge">
+                    <span>#{{rankNumber}}</span>
+                    <small>Rank</small>
+                </div>
+
+                <div class="rank-main">
+                    <div class="rank-heading">
+                        <h2>{{teamName}}</h2>
+                        <span>{{abbreviation}}</span>
+                    </div>
+                    <p>{{wins}}-{{losses}} over {{gamesPlayed}} games</p>
+                </div>
+
+                <dl class="rank-stats">
+                    <div>
+                        <dt>Win Pct</dt>
+                        <dd>{{winPct}}</dd>
+                    </div>
+                    <div>
+                        <dt>Points For</dt>
+                        <dd>{{pointsFor}}</dd>
+                    </div>
+                    <div>
+                        <dt>Points Against</dt>
+                        <dd>{{pointsAgainst}}</dd>
+                    </div>
+                    <div>
+                        <dt>Avg Diff</dt>
+                        <dd>{{pointDiff}}</dd>
+                    </div>
+                </dl>
+            </article>
+        {{/rankings}}
+    </div>
 
     {{^rankings}}
-        <div class="card">
-            <p>No rankings are available for the selected filters.</p>
+        <div class="card ranking-empty-state">
+            <p>No rankings are available for the selected minimum games filter.</p>
         </div>
     {{/rankings}}
 </div>

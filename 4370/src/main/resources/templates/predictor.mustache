@@ -1,0 +1,128 @@
+{{> head}}
+<div class="page-shell predictor-shell">
+    {{> header}}
+
+    <section class="predictor-panel" aria-label="Prediction controls">
+        <form method="get" action="/predictor" class="predictor-form">
+            <div class="predictor-field-row">
+                <div>
+                    <label for="homeTeam">Home Team</label>
+                    <select id="homeTeam" name="homeTeam">
+                        {{#homeTeams}}
+                            <option value="{{abbreviation}}" {{#selected}}selected{{/selected}}>{{displayName}}</option>
+                        {{/homeTeams}}
+                    </select>
+                </div>
+
+                <div>
+                    <label for="awayTeam">Away Team</label>
+                    <select id="awayTeam" name="awayTeam">
+                        {{#awayTeams}}
+                            <option value="{{abbreviation}}" {{#selected}}selected{{/selected}}>{{displayName}}</option>
+                        {{/awayTeams}}
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="button primary" type="submit">Run Prediction</button>
+                <a class="button secondary" href="/home">Back Home</a>
+            </div>
+        </form>
+    </section>
+
+    {{#hasPrediction}}
+        {{#prediction}}
+            <section class="prediction-card" aria-label="Prediction result">
+                <div class="prediction-matchup">
+                    <div>
+                        <p class="predictor-label">Home</p>
+                        <h2>{{homeTeamName}}</h2>
+                        <span>{{homeAbbreviation}} - {{homeRecord}}</span>
+                    </div>
+
+                    <div class="prediction-versus">vs</div>
+
+                    <div>
+                        <p class="predictor-label">Away</p>
+                        <h2>{{awayTeamName}}</h2>
+                        <span>{{awayAbbreviation}} - {{awayRecord}}</span>
+                    </div>
+                </div>
+
+                <div class="probability-grid">
+                    <div class="probability-box">
+                        <div class="probability-heading">
+                            <span>{{homeAbbreviation}}</span>
+                            <strong>{{homeWinProbability}}</strong>
+                        </div>
+                        <div class="probability-track">
+                            <div class="probability-fill home" style="width: {{homeProbabilityWidth}}"></div>
+                        </div>
+                    </div>
+
+                    <div class="probability-box">
+                        <div class="probability-heading">
+                            <span>{{awayAbbreviation}}</span>
+                            <strong>{{awayWinProbability}}</strong>
+                        </div>
+                        <div class="probability-track">
+                            <div class="probability-fill away" style="width: {{awayProbabilityWidth}}"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prediction-summary">
+                    <div>
+                        <p class="predictor-label">Projected Result</p>
+                        <h3>{{projectedMargin}}</h3>
+                    </div>
+                    <div>
+                        <p class="predictor-label">Confidence</p>
+                        <h3>{{confidenceLabel}}</h3>
+                    </div>
+                    <div>
+                        <p class="predictor-label">Training Games</p>
+                        <h3>{{trainingGames}}</h3>
+                    </div>
+                </div>
+
+                <p class="prediction-note">{{recommendation}}</p>
+            </section>
+
+            <section class="feature-grid" aria-label="Model features">
+                <div class="feature-card">
+                    <p class="predictor-label">{{homeAbbreviation}} Win Pct</p>
+                    <strong>{{homeWinPct}}</strong>
+                    <span>Point diff {{homePointDiff}}</span>
+                </div>
+                <div class="feature-card">
+                    <p class="predictor-label">{{awayAbbreviation}} Win Pct</p>
+                    <strong>{{awayWinPct}}</strong>
+                    <span>Point diff {{awayPointDiff}}</span>
+                </div>
+                <div class="feature-card">
+                    <p class="predictor-label">{{homeAbbreviation}} Scoring</p>
+                    <strong>{{homePointsFor}}</strong>
+                    <span>Allowed {{homePointsAgainst}}</span>
+                </div>
+                <div class="feature-card">
+                    <p class="predictor-label">{{awayAbbreviation}} Scoring</p>
+                    <strong>{{awayPointsFor}}</strong>
+                    <span>Allowed {{awayPointsAgainst}}</span>
+                </div>
+            </section>
+
+            <div class="card predictor-explainer">
+                <p>This page uses SQL aggregation to create team features, then trains a small logistic model in plain Java. It intentionally avoids Python, sklearn, PyTorch, and any new third-party library.</p>
+            </div>
+        {{/prediction}}
+    {{/hasPrediction}}
+
+    {{^hasPrediction}}
+        <div class="card predictor-empty-state">
+            <p>Load the NBA dataset to generate matchup predictions.</p>
+        </div>
+    {{/hasPrediction}}
+</div>
+{{> footer}}

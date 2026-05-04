@@ -17,60 +17,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RankingsController {
 
     private final DataSource dataSource;
+    private static final String DEFAULT_SEASON_ID = "22018";
 
     public RankingsController(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
     @GetMapping("/rankings")
-    public String rankings(@RequestParam(value = "season", defaultValue = "") String season,
-                           @RequestParam(value = "minGames", defaultValue = "10") int minGames,
+    public String rankings(@RequestParam(value = "minGames", defaultValue = "10") int minGames,
                            Model model) {
-        List<String> seasons = findSeasons();
-        String selectedSeason = season.trim();
-        if (selectedSeason.isEmpty() && !seasons.isEmpty()) {
-            selectedSeason = seasons.get(0);
-        }
-
         int safeMinGames = Math.max(1, Math.min(minGames, 82));
 
         model.addAttribute("title", "Team Rankings");
         model.addAttribute("pageTitle", "Team Rankings");
-        model.addAttribute("pageSubtitle", "Rank NBA teams by regular season wins and scoring margin.");
-        final String currentSeason = selectedSeason;
-        model.addAttribute("seasons", seasons.stream()
-                .map(value -> new SeasonOption(value, value.equals(currentSeason)))
-                .toList());
-        model.addAttribute("selectedSeason", selectedSeason);
+        model.addAttribute("pageSubtitle", "Rank 2018-19 NBA teams by regular season wins and scoring margin.");
+        model.addAttribute("seasonLabel", "2018-19 Regular Season");
         model.addAttribute("minGames", safeMinGames);
-        model.addAttribute("rankings", selectedSeason.isEmpty()
-                ? List.of()
-                : findRankings(selectedSeason, safeMinGames));
+        model.addAttribute("rankings", findRankings(DEFAULT_SEASON_ID, safeMinGames));
         return "rankings";
-    }
-
-    private List<String> findSeasons() {
-        String sql = """
-                SELECT DISTINCT season_id
-                FROM game
-                WHERE season_type = ?
-                ORDER BY season_id DESC
-                """;
-
-        List<String> seasons = new ArrayList<>();
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "Regular Season");
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    seasons.add(rs.getString("season_id"));
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to load seasons", e);
-        }
-        return seasons;
     }
 
     private List<TeamRankingView> findRankings(String season, int minGames) {
@@ -162,8 +126,5 @@ public class RankingsController {
     }
 
     public record TeamRankingView(int rankNumber, String teamName, String abbreviation, int gamesPlayed, int wins, int losses, BigDecimal winPct, BigDecimal pointsFor, BigDecimal pointsAgainst, BigDecimal pointDiff) {
-    }
-
-    public record SeasonOption(String value, boolean selected) {
     }
 }
