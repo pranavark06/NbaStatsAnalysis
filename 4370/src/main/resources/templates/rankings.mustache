@@ -7,18 +7,6 @@
             <p class="rankings-season">Regular Season Rankings</p>
             <p class="rankings-note">Choose a season to rank teams by wins and scoring margin.</p>
         </div>
-
-        <form method="get" action="/rankings" class="ranking-form">
-            <label for="season">Season</label>
-            <div class="ranking-filter-row">
-                <select id="season" name="season">
-                    {{#seasons}}
-                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>
-                    {{/seasons}}
-                </select>
-                <button class="button primary" type="submit">Update</button>
-            </div>
-        </form>
     </section>
 
     <div class="button-group rankings-nav">
