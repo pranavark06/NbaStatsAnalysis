@@ -79,8 +79,8 @@
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | prelim.pdf               | `TBD`              | `TBD`                                                                                                                |
-| prelim.pdf               | `Swap R.`          | `Preliminary ER Diagram`                                                                                             |
-| db_design.pdf            | `Swap R.`          | `ER Diagram`                                                                                                         |
+| prelim.pdf               | `Swap R.`          | `TBD`                                                                                                                |
+| db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
 | db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
 | ddl.sql                  | `Tyler L.`         | `Digested data by filtering raw kaggle data and seeded the database with SQL DDL`                                    |
 | queries.sql              | `TBD`              | `TBD`                                                                                                                |
