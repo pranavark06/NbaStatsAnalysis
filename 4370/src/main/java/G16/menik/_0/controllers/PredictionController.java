@@ -1,14 +1,16 @@
 package G16.menik._0.controllers;
 
-import G16.menik._0.services.PredictionService;
-import G16.menik._0.services.PredictionService.PredictionResult;
-import G16.menik._0.services.PredictionService.TeamOption;
 import java.sql.SQLException;
 import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import G16.menik._0.services.PredictionService;
+import G16.menik._0.services.PredictionService.PredictionResult;
+import G16.menik._0.services.PredictionService.TeamOption;
 
 @Controller
 public class PredictionController {
@@ -41,7 +43,7 @@ public class PredictionController {
 
             model.addAttribute("title", "Matchup Predictor");
             model.addAttribute("pageTitle", "Matchup Predictor");
-            model.addAttribute("pageSubtitle", "Estimate NBA matchup outcomes using a pure Java model trained from MySQL game data.");
+            model.addAttribute("pageSubtitle", "Estimates NBA matchup outcomes.");
             model.addAttribute("homeTeams", selectableTeams(teams, selectedHome));
             model.addAttribute("awayTeams", selectableTeams(teams, selectedAway));
             model.addAttribute("prediction", prediction);
