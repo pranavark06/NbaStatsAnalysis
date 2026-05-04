@@ -9,9 +9,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.sql.DataSource;
+
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class for generating NBA game outcome predictions using logistic regression.
+ * Analyzes team statistics and historical game outcomes to predict home team win probability.
+ */
 @Service
 public class PredictionService {
 
@@ -19,16 +25,36 @@ public class PredictionService {
     private static final String SEASON_TYPE = "Regular Season";
     private final DataSource dataSource;
 
+    /**
+     * Constructs PredictionService with the specified DataSource.
+     *
+     * @param dataSource the data source for database connections
+     */
     public PredictionService(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
+    /**
+     * Retrieves all NBA teams with their season statistics for the analysis period.
+     *
+     * @return a list of TeamOption objects containing team abbreviations and names
+     * @throws SQLException if a database error occurs
+     */
     public List<TeamOption> getTeams() throws SQLException {
         return new ArrayList<>(loadTeamStats().values()).stream()
                 .map(team -> new TeamOption(team.abbreviation(), team.teamName() + " (" + team.abbreviation() + ")"))
                 .toList();
     }
 
+    /**
+     * Predicts the outcome of a matchup between two teams using logistic regression.
+     * Analyzes team statistics and historical game data to estimate win probability.
+     *
+     * @param homeAbbreviation the home team's NBA abbreviation (e.g., "LAL", "BOS")
+     * @param awayAbbreviation the away team's NBA abbreviation
+     * @return a PredictionResult containing probability, projected margin, and recommendation
+     * @throws SQLException if the specified teams cannot be found or a database error occurs
+     */
     public PredictionResult predict(String homeAbbreviation, String awayAbbreviation) throws SQLException {
         Map<String, TeamStats> stats = loadTeamStats();
         TeamStats home = stats.get(homeAbbreviation);

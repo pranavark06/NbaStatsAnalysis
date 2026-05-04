@@ -14,16 +14,32 @@ import org.springframework.stereotype.Service;
 
 import G16.menik._0.models.PlayerGameStats;
 
+/**
+ * Service class for retrieving player game statistics from the database.
+ * Provides methods to fetch individual player performance data for specific games or teams.
+ */
 @Service
 public class PlayerGameStatsService {
 
     private final DataSource dataSource;
 
+    /**
+     * Constructs PlayerGameStatsService with the specified DataSource.
+     *
+     * @param dataSource the data source for database connections
+     */
     @Autowired
     public PlayerGameStatsService(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
+    /**
+     * Retrieves all player statistics for a specific game, ordered by team and points scored.
+     *
+     * @param gameId the unique identifier for the game
+     * @return a list of PlayerGameStats objects for all players in the game
+     * @throws SQLException if a database error occurs
+     */
     public List<PlayerGameStats> getStatsByGameId(String gameId) throws SQLException {
         //String sql = "SELECT * FROM player_game_stats WHERE GAME_ID = ? ORDER BY TEAM_ABBREVIATION, CAST(PTS AS UNSIGNED) DESC";
         String sql = """
@@ -58,6 +74,15 @@ public class PlayerGameStatsService {
         return statsList;
     }
 
+    /**
+     * Retrieves player statistics for all players of a specific team in a specific game.
+     * Includes comprehensive player biographical and draft information.
+     *
+     * @param gameId the unique identifier for the game
+     * @param teamId the unique identifier for the team
+     * @return a list of PlayerGameStats objects for players of the specified team in the game
+     * @throws SQLException if a database error occurs
+     */
     public List<PlayerGameStats> getStatsByGameAndTeam(String gameId, String teamId) throws SQLException {
         String sql = """
                 SELECT

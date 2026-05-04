@@ -12,15 +12,35 @@ import G16.menik._0.services.PredictionService;
 import G16.menik._0.services.PredictionService.PredictionResult;
 import G16.menik._0.services.PredictionService.TeamOption;
 
+/**
+ * Controller for handling NBA game outcome predictions.
+ * Provides interface for users to select teams and view predicted match outcomes.
+ */
 @Controller
 public class PredictionController {
 
     private final PredictionService predictionService;
 
+    /**
+     * Constructs PredictionController with the specified PredictionService.
+     *
+     * @param predictionService the service for generating game predictions
+     */
     public PredictionController(PredictionService predictionService) {
         this.predictionService = predictionService;
     }
 
+    /**
+     * Displays the matchup predictor page and generates predictions.
+     * Allows users to select home and away teams and displays predicted outcome.
+     * Defaults to Milwaukee Bucks vs Toronto Raptors if no teams are selected.
+     *
+     * @param homeTeam optional home team abbreviation (defaults to "MIL")
+     * @param awayTeam optional away team abbreviation (defaults to "TOR")
+     * @param model the Spring model to pass data to the template
+     * @return the view name "predictor" for rendering the prediction page
+     * @throws RuntimeException if prediction data cannot be loaded
+     */
     @GetMapping("/predictor")
     public String predictor(@RequestParam(value = "homeTeam", defaultValue = "") String homeTeam,
                             @RequestParam(value = "awayTeam", defaultValue = "") String awayTeam,
