@@ -19,8 +19,8 @@
 <br />
 
 <div align="center">
-  [PLACEHOLDER DEMO]
-  <p><b>CSCI x370 Microblogging Platform Demo</b></p>
+  [PLACEHOLDER]
+  <p><b>CSCI x370 Courtvision Demo</b></p>
 </div>
 
 - **Simple:** A clean interface for browsing games, rankings, draft records, and player statistics.
@@ -262,7 +262,9 @@ The project is in the sports analytics domain, specifically focused on NBA baske
 
 The problem this application addresses is making NBA data easier to access, search, compare, and understand through a web interface. Instead of manually querying a database, users can log in and explore meaningful basketball information such as game results, player game statistics, team rankings, and draft history through organized pages backed by a MySQL database.
 
-[SOULUTION + INTERFACE DISCUSSION PLACEHOLDER]
+Court Vision is a comprehensive sports analytics platform that provides an intuitive web
+interface for exploring NBA basketball data. The application transforms raw database records
+into actionable insights through organized, user-friendly pages backed by a MySQL database.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#er-diagram)
 ## ER Diagram
