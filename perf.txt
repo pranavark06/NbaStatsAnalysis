@@ -1,1 +1,67 @@
-will do soon
+Query 1 (that was affected by the indexes):
+
+SELECT DISTINCT season_id
+FROM game
+WHERE season_type = ?
+ORDER BY season_id DESC;
+
+Time consumption before adding index: 0.00215500 seconds
+Time consumption after adding index: 0.00209825 seconds
+
+Query 2:
+
+WITH team_games AS (
+    SELECT season_id,
+           team_id_home AS team_id,
+           team_name_home AS team_name,
+           team_abbreviation_home AS abbreviation,
+           CASE WHEN wl_home = 'W' THEN 1 ELSE 0 END AS win,
+           pts_home AS points_for,
+           pts_away AS points_against,
+           plus_minus_home AS point_diff
+    FROM game
+    WHERE season_type = ? AND season_id = ?
+    UNION ALL
+    SELECT season_id,
+           team_id_away AS team_id,
+           team_name_away AS team_name,
+           team_abbreviation_away AS abbreviation,
+           CASE WHEN wl_away = 'W' THEN 1 ELSE 0 END AS win,
+           pts_away AS points_for,
+           pts_home AS points_against,
+           plus_minus_away AS point_diff
+    FROM game
+    WHERE season_type = ? AND season_id = ?
+),
+team_totals AS (
+    SELECT tg.team_id,
+           COALESCE(t.full_name, tg.team_name) AS team_name,
+           tg.abbreviation,
+           COUNT(*) AS games_played,
+           SUM(tg.win) AS wins,
+           COUNT(*) - SUM(tg.win) AS losses,
+           ROUND(SUM(tg.win) / COUNT(*), 3) AS win_pct,
+           ROUND(AVG(tg.points_for), 1) AS points_for,
+           ROUND(AVG(tg.points_against), 1) AS points_against,
+           ROUND(AVG(tg.point_diff), 1) AS point_diff
+    FROM team_games tg
+    LEFT JOIN team t ON t.id = tg.team_id
+    GROUP BY tg.team_id, COALESCE(t.full_name, tg.team_name), tg.abbreviation
+)
+SELECT ROW_NUMBER() OVER (
+           ORDER BY win_pct DESC, wins DESC, point_diff DESC, points_for DESC
+       ) AS rank_number,
+       team_name,
+       abbreviation,
+       games_played,
+       wins,
+       losses,
+       win_pct,
+       points_for,
+       points_against,
+       point_diff
+FROM team_totals
+ORDER BY rank_number;
+
+Time consumption before adding indexes: 0.02383325 seconds
+Time consumption after adding indexes: 0.01487400 seconds

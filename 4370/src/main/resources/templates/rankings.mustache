@@ -4,14 +4,18 @@
 
     <section class="rankings-control-panel" aria-label="Ranking filters">
         <div>
-            <p class="rankings-season">{{seasonLabel}}</p>
-            <p class="rankings-note">Adjust this filter to exclude teams with fewer appearances.</p>
+            <p class="rankings-season">Regular Season Rankings</p>
+            <p class="rankings-note">Choose a season to rank teams by wins and scoring margin.</p>
         </div>
 
         <form method="get" action="/rankings" class="ranking-form">
-            <label for="minGames">Minimum Games</label>
+            <label for="season">Season ID</label>
             <div class="ranking-filter-row">
-                <input id="minGames" name="minGames" type="number" min="1" max="82" value="{{minGames}}"/>
+                <select id="season" name="season">
+                    {{#seasons}}
+                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
+                    {{/seasons}}
+                </select>
                 <button class="button primary" type="submit">Update</button>
             </div>
         </form>
@@ -61,7 +65,7 @@
 
     {{^rankings}}
         <div class="card ranking-empty-state">
-            <p>No rankings are available for the selected minimum games filter.</p>
+            <p>No rankings are available for the selected season.</p>
         </div>
     {{/rankings}}
 </div>

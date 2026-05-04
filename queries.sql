@@ -84,7 +84,6 @@ team_totals AS (
     FROM team_games tg
     LEFT JOIN team t ON t.id = tg.team_id
     GROUP BY tg.team_id, COALESCE(t.full_name, tg.team_name), tg.abbreviation
-    HAVING COUNT(*) >= ?
 )
 SELECT ROW_NUMBER() OVER (
            ORDER BY win_pct DESC, wins DESC, point_diff DESC, points_for DESC
