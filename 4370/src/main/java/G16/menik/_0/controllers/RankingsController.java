@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.sql.DataSource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +32,7 @@ public class RankingsController {
 
         model.addAttribute("title", "Team Rankings");
         model.addAttribute("pageTitle", "Team Rankings");
-        model.addAttribute("pageSubtitle", "Rank 2018-19 NBA teams by regular season wins and scoring margin.");
+        model.addAttribute("pageSubtitle", "Rank NBA teams by 2018 - 19 regular season wins and +/-.");
         model.addAttribute("seasonLabel", "2018-19 Regular Season");
         model.addAttribute("minGames", safeMinGames);
         model.addAttribute("rankings", findRankings(DEFAULT_SEASON_ID, safeMinGames));
