@@ -34,19 +34,12 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Thanks to all our Contributors!](#thanks-to-all-our-contributors)
+- [Thanks to all our Contributors!](#contributions)
 - [Installation](#installation)
-  - [Requirements](#requirements)
   - [Installing Docker](#installing-docker)
   - [Docker Setup](#docker-setup)
   - [Running the Application](#running-the-application)
   - [Using the Application](#using-the-application)
-- [NonTrivial New Feature - Trending Page](#nontrivial-new-feature---trending-page)
-  - [What the page shows](#what-the-page-shows)
-  - [Request flow and behavior](#request-flow-and-behavior)
-  - [Implementation locations](#implementation-locations)
-  - [SQL used by the feature](#sql-used-by-the-feature)
-  - [Why this is non-trivial](#why-this-is-non-trivial)
 - [ER Diagram](#er-diagram)
 - [Have Questions?](#have-questions)
 </details>
