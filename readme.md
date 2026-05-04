@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/thespcrewroy/4370/blob/main/assets/logo.jpeg" alt="Logo" width="400" height="400" />
+<img src="https://github.com/tylernlyons/4370/blob/main/assets/logo.jpeg" alt="Logo" width="400" height="400" />
 <p align="center">
 <a href="https://github.com/tylernlyons/4370/graphs/framework"><img alt="MySQL" src="https://img.shields.io/badge/MySQL-v8.0-red.svg" height="20"/></a>
 <a href="https://github.com/tylernlyons/4370/graphs/framework"><img alt="Java" src="https://img.shields.io/badge/Java-v21.0.8-green.svg" height="20"/></a>
@@ -105,7 +105,7 @@
 | F5: TBD                  | `SriRam S.`        | `Generated a User Profile view to allow for profile changes or deletions`                                            |
 
 <p align="center">
-  <img src="https://github.com/thespcrewroy/MicroBloggr/blob/main/groupcontributionform.png" alt="Group Contribution Form" width="800" />
+  <img src="https://github.com/tylernlyons/MicroBloggr/blob/main/groupcontributionform.png" alt="Group Contribution Form" width="800" />
 </p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#dependencies)
@@ -159,7 +159,7 @@ N/A
 ## Installation
 
 ### Installing Docker
-Check out the [Docker installation guide](https://github.com/thespcrewroy/CSCI4370-DatabaseManagement/blob/main/Notes/00-Setup/01-docker-mysql.md)
+Check out the [Docker installation guide](https://github.com/tylernlyons/CSCI4370-DatabaseManagement/blob/main/Notes/00-Setup/01-docker-mysql.md)
 
 ### Docker Setup
 **1. Start MySQL Docker**
@@ -221,7 +221,7 @@ SHOW TABLES;
 ```
 
 <p align="center">
-  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/tables.png" alt="Imported Tables" width="300" 
+  <img src="https://github.com/tylernlyons/4370/blob/main/assets/tables.png" alt="Imported Tables" width="300" 
 />
 
 Added Rows:
@@ -270,7 +270,7 @@ into actionable insights through organized, user-friendly pages backed by a MySQ
 ## ER Diagram
 
 <p align="center">
-  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/ermodel.png" alt="ER Model" width="800" />
+  <img src="https://github.com/tylernlyons/4370/blob/main/assets/ermodel.png" alt="ER Model" width="800" />
 </p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
