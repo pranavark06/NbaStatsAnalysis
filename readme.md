@@ -78,7 +78,7 @@
 
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| prelim.pdf               | `Swap R.`          | `Described the domain, problem, solution (UIs and the technologies used), and made the ER Model`                     |
+| prelim.pdf               | `Swap R.`          | `Described the domain, problem, solution, UIs, technologies, and made the ER Model`                                  |
 | db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
 | db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
 | ddl.sql                  | `Tyler L.`         | `Leveraged SQL DDL statements to digest raw kaggle data to seed the database`                                        |
