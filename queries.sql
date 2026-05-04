@@ -45,13 +45,6 @@ WHERE (? = '' OR dh.season = ?)
        OR LOWER(dh.team_abbreviation) = ?)
 ORDER BY CAST(dh.season AS UNSIGNED) DESC, dh.overall_pick ASC;
 
--- Purpose: Retrieves available regular season IDs for the Team Rankings page season selector.
--- URL path: GET /rankings
-SELECT DISTINCT season_id
-FROM game
-WHERE season_type = ?
-ORDER BY season_id DESC;
-
 -- Purpose: Ranks teams for one regular season using wins, losses, win percentage, scoring averages, and point differential.
 -- URL path: GET /rankings
 WITH team_games AS (
@@ -107,6 +100,48 @@ SELECT ROW_NUMBER() OVER (
        point_diff
 FROM team_totals
 ORDER BY rank_number;
+
+-- Purpose: Builds team-level feature vectors for the Matchup Predictor by aggregating each team's wins, losses, scoring averages, and point differential from the 2018-19 regular season.
+-- URL path: GET /predictor
+WITH team_games AS (
+    SELECT team_abbreviation_home AS abbreviation,
+           team_name_home AS team_name,
+           CASE WHEN wl_home = 'W' THEN 1 ELSE 0 END AS win,
+           pts_home AS points_for,
+           pts_away AS points_against,
+           plus_minus_home AS point_diff
+    FROM game
+    WHERE season_id = ? AND season_type = ?
+    UNION ALL
+    SELECT team_abbreviation_away AS abbreviation,
+           team_name_away AS team_name,
+           CASE WHEN wl_away = 'W' THEN 1 ELSE 0 END AS win,
+           pts_away AS points_for,
+           pts_home AS points_against,
+           plus_minus_away AS point_diff
+    FROM game
+    WHERE season_id = ? AND season_type = ?
+)
+SELECT abbreviation,
+       MAX(team_name) AS team_name,
+       COUNT(*) AS games_played,
+       SUM(win) AS wins,
+       COUNT(*) - SUM(win) AS losses,
+       SUM(win) / COUNT(*) AS win_pct,
+       AVG(points_for) AS avg_points_for,
+       AVG(points_against) AS avg_points_against,
+       AVG(point_diff) AS avg_point_diff
+FROM team_games
+GROUP BY abbreviation
+ORDER BY team_name;
+
+-- Purpose: Retrieves historical home/away game outcomes used as labels for the Matchup Predictor's pure Java logistic model.
+-- URL path: GET /predictor
+SELECT team_abbreviation_home AS home_abbreviation,
+       team_abbreviation_away AS away_abbreviation,
+       CASE WHEN wl_home = 'W' THEN 1 ELSE 0 END AS home_win
+FROM game
+WHERE season_id = ? AND season_type = ?;
 
 -- Purpose: This query will get the game details as well as player statistics for each game for regular season , playoffs, as well as the all star game
 -- URL path: GET /games
@@ -204,4 +239,3 @@ SELECT * FROM game WHERE team_abbreviation_home = ? OR team_abbreviation_away = 
 SELECT * FROM game WHERE game_date BETWEEN ? AND ? ORDER BY game_date DESC;
 	
 SELECT DISTINCT team_abbreviation_home FROM game ORDER BY team_abbreviation_home;
-

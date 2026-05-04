@@ -1,9 +1,9 @@
 {{> head}}
-{{> header}}
-{{> alerts}}
+<div class="page-shell games-shell">
+    {{> header}}
+    {{> alerts}}
 
-<main>
-    <div class="container">
+    <main>
         <div class="filters">
             <label for="teamFilter">Filter by Team:</label>
             <select id="teamFilter" onchange="filterByTeam(this.value)">
@@ -45,8 +45,8 @@
             <p>No games found.</p>
         </div>
         {{/games}}
-    </div>
-</main>
+    </main>
+</div>
 
 {{> footer}}
 

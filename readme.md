@@ -93,7 +93,7 @@
 | Readme.txt               | `Swap R.`          | `Technology, 3rd Party, and setup instructions`                                                                      |
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
-| F3: ML/DS Feature        | `Swap R.`          | `TBD`                                                                                                                |
+| F3: Matchup Predictor    | `Swap R.`          | `Built a pure Java data science feature that trains a logistic matchup model from SQL-aggregated NBA game data`      |
 | F4: TBD                  | `Neil C.`          | `TBD`                                                                                                                |
 | F5: TBD                  | `SriRam S.`        | `TBD`                                                                                                                |
 
@@ -122,10 +122,11 @@ Spring Boot JDBC
 Spring Security Crypto
 MySQL Connector/J
 HTML/CSS
+Vanilla JavaScript
 ```
 
 > [!IMPORTANT]\
-> All of the above libraries were provided in Project 2. Thus, no written consent is required.
+> The application does not add runtime libraries beyond the Project 2-style Spring Boot, JDBC, Mustache, MySQL, and Spring Security Crypto stack. The matchup predictor is implemented in plain Java without sklearn, PyTorch, NumPy, or external ML libraries.
 
 ### Third-Party Libraries Used
 ```
@@ -289,4 +290,3 @@ This is a project developed by Dr. Menik to give the students an opportunity to 
 
 <p align="right"><a href="#top">🔼 Back to top</a></p>
 </small>
-
