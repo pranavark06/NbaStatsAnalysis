@@ -120,9 +120,25 @@ Docker version 28.3.2, build 578ccf6
 Apache Maven 3.9.11
 ```
 
+## Technologies Used
+```
+- Java 21
+- Spring Boot
+- Spring Boot Web
+- Spring Boot Mustache
+- Spring Boot JDBC
+- Spring Security Crypto
+- MySQL Connector/J
+- MySQL 8.1.0
+- Docker
+- Maven
+- HTML
+- CSS
+```
+
 ### Third-Party Libraries
 ```
-[PLACEHOLDER]
+N/A
 ```
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#project-structure)
