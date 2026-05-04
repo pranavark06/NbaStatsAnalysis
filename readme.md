@@ -78,8 +78,7 @@
 
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| prelim.pdf               | `TBD`              | `TBD`                                                                                                                |
-| prelim.pdf               | `Swap R.`          | `TBD`                                                                                                                |
+| prelim.pdf               | `Swap R.`          | `Described the domain, problem, solution, UIs, technologies, and made the ER Model`                                  |
 | db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
 | db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
 | ddl.sql                  | `Tyler L.`         | `Leveraged SQL DDL statements to digest raw kaggle data to seed the database`                                        |
@@ -121,8 +120,8 @@ Spring Boot Mustache
 Spring Boot JDBC
 Spring Security Crypto
 MySQL Connector/J
-HTML/CSS
-Vanilla JavaScript
+JDBC (Java Database Connectivity)
+HTML/CSS/JS
 ```
 
 > [!IMPORTANT]\
