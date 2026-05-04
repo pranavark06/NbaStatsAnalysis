@@ -163,12 +163,12 @@ docker run --name mysql-server-x370 \
 
 **2. Clone the Git Repo**
 ```console
-git clone https://github.com/tylernlyons/P2_micro_blogging
+git clone https://github.com/tylernlyons/4370
 ```
 
-**3. Head to the Project Filder**
+**3. Head to the Source Code Folder**
 ```console
-cd  /local/path/to/P2_micro_blogging/P2_micro_blogging
+cd  /local/path/to/4370/4370
 ```
 
 **4. Copy the SQL Files Into the Container**
@@ -179,7 +179,7 @@ docker cp data.sql mysql-server-x370:/tmp/data.sql
 
 **5. Open MySQL Inside Docker**
 ```console
-docker exec -it <container_id> bash
+docker exec -it mysql-server-x370 bash
 mysql -u root -p
 ```
 Password:
