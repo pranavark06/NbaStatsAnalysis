@@ -12,7 +12,7 @@
 
 
 <p align="center">
-  <b>A sports analytics platform for exploring NBA games, team rankings, draft history, and player performance data.</b></br>
+  <b>A sports analytics platform for exploring NBA games, team rankings, draft history, and player performance.</b></br>
   <sub>Use this platform to search basketball data, review game results, compare team standings, and explore draft records through database-driven pages. Built for a clean and practical sports analysis experience, this project highlights full-stack development with real-world features like authentication, searchable records, detailed game views, rankings, SQL joins, aggregation queries, and MySQL-backed data..<sub>
 </p>
 
