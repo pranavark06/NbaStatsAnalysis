@@ -1,0 +1,64 @@
+{{> head}}
+<div class="page-shell form-shell">
+    {{> header}}
+
+    {{#success}}
+    <div class="alert success">{{success}}</div>
+    {{/success}}
+    {{> alerts}}
+
+    {{! --- Update Username --- }}
+    <div class="card">
+        <form action="/profile/update-username" method="post">
+            <label for="username">New Username</label>
+            <input type="text" id="username" name="username" value="{{username}}" required />
+            <div class="button-group">
+                <button type="submit" class="button primary">Save Username</button>
+            </div>
+        </form>
+    </div>
+
+    {{! --- Update Full Name --- }}
+    <div class="card">
+        <form action="/profile/update-name" method="post">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" value="{{fullName}}" required />
+            <div class="button-group">
+                <button type="submit" class="button primary">Save Name</button>
+            </div>
+        </form>
+    </div>
+
+    {{! --- Change Password --- }}
+    <div class="card">
+        <form action="/profile/update-password" method="post">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" name="currentPassword" required />
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" name="newPassword" required />
+            <label for="confirmPassword">Confirm New Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required />
+            <div class="button-group">
+                <button type="submit" class="button primary">Change Password</button>
+            </div>
+        </form>
+    </div>
+
+    {{! --- Danger Zone --- }}
+    <div class="card">
+        <p style="color:var(--error-text);">Deleting your account is permanent and cannot be undone.</p>
+        <form action="/profile/delete" method="post">
+            <div class="button-group">
+                <button type="submit" class="button secondary"
+                        onclick="return confirm('Are you sure? This cannot be undone.')">
+                    Delete My Account
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="button-group" style="position:relative;z-index:1;">
+        <a class="button secondary" href="/home">Back to Home</a>
+    </div>
+</div>
+{{> footer}}

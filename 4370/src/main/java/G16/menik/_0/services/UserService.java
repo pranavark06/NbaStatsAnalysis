@@ -130,4 +130,78 @@ public class UserService {
             pstmt.executeUpdate();
         }
     }
+
+    /**
+     * Update the user
+     */
+
+    public void updateUsername(Long id, String newUsername) throws SQLException {
+        // Check if username is already taken by someone else
+        final String checkSql = "SELECT id FROM users WHERE username = ? AND id != ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement check = conn.prepareStatement(checkSql)) {
+            check.setString(1, newUsername);
+            check.setLong(2, id);
+            try (ResultSet rs = check.executeQuery()) {
+                if (rs.next()) {
+                  throw new SQLException("Username is already taken.");
+                }
+            }
+        }
+        final String sql = "UPDATE users SET username = ? WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newUsername);
+            pstmt.setLong(2, id);
+            pstmt.executeUpdate();
+            if (loggedInUser != null && loggedInUser.getId().equals(id)) {
+                loggedInUser.setUsername(newUsername);
+            }
+        }
+    }
+
+    public void updateFullName(Long id, String newFullName) throws SQLException {
+        final String sql = "UPDATE users SET full_name = ? WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newFullName);
+            pstmt.setLong(2, id);
+            pstmt.executeUpdate();
+            if (loggedInUser != null && loggedInUser.getId().equals(id)) {
+                loggedInUser.setFullName(newFullName);
+            }
+        }
+    }
+
+    public void updatePassword(Long id, String currentPassword, String newPassword) throws SQLException {
+        // Verify current password first
+        final String fetchSql = "SELECT password_hash FROM users WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(fetchSql)) {
+            pstmt.setLong(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (!rs.next() || !passwordEncoder.matches(currentPassword, rs.getString("password_hash"))) {
+                    throw new SQLException("Current password is incorrect.");
+                }
+            }
+        }
+        String newHash = passwordEncoder.encode(newPassword);
+        final String sql = "UPDATE users SET password_hash = ? WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newHash);
+            pstmt.setLong(2, id);
+            pstmt.executeUpdate();
+        }
+    }
+    
+
+    public void deleteUser(Long id) throws SQLException {
+        final String sql = "DELETE FROM users WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setLong(1, id);
+            pstmt.executeUpdate();
+        }
+    }
 }
