@@ -64,6 +64,11 @@ public class RankingsController {
         return "rankings";
     }
 
+    /**
+     * Retrieves available regular-season identifiers for ranking selection.
+     *
+     * @return a list of season IDs ordered from newest to oldest
+     */
     private List<String> findSeasons() {
         String sql = """
                 SELECT DISTINCT season_id
@@ -97,6 +102,20 @@ public class RankingsController {
             }
         }
         return seasonId;
+    }
+
+    /**
+     * Format a raw season identifier into a human-friendly label.
+     * <p>
+     * The expected input is a 5-character season id starting with '2'. When
+     * parseable it converts the stored id into a label like "2018-19". If the
+     * value cannot be parsed the original id is returned unchanged.
+     *
+     * @param seasonId raw season id from the database
+     * @return formatted season label or the original id if formatting fails
+     */
+    private String formatSeasonLabelDoc(String seasonId) {
+        return formatSeasonLabel(seasonId);
     }
 
     private List<TeamRankingView> findRankings(String season) {
@@ -185,9 +204,45 @@ public class RankingsController {
         return rankings;
     }
 
+    /**
+     * Query the database to compute team rankings for a given season.
+     * <p>
+     * This method builds an aggregate SQL query that collates home and away
+     * appearances into per-team totals (wins, losses, averages) and then
+     * produces an ordered list of `TeamRankingView` rows representing the
+     * standings for the requested season.
+     *
+     * @param season the season id to compute rankings for (e.g. "2018")
+     * @return a list of `TeamRankingView` objects ordered by rank
+     */
+    private List<TeamRankingView> findRankingsDoc(String season) {
+        return findRankings(season);
+    }
+
+    /**
+     * View model for a team ranking row displayed on the rankings page.
+     *
+     * @param rankNumber ordinal rank of the team
+     * @param teamName full team name
+     * @param abbreviation team abbreviation
+     * @param gamesPlayed total games played
+     * @param wins number of wins
+     * @param losses number of losses
+     * @param winPct win percentage
+     * @param pointsFor average points scored
+     * @param pointsAgainst average points allowed
+     * @param pointDiff average point differential
+     */
     public record TeamRankingView(int rankNumber, String teamName, String abbreviation, int gamesPlayed, int wins, int losses, BigDecimal winPct, BigDecimal pointsFor, BigDecimal pointsAgainst, BigDecimal pointDiff) {
     }
 
+    /**
+     * Simple DTO for rendering season selector options in the UI.
+     *
+     * @param value    the raw season id value
+     * @param label    the human-friendly label shown to users
+     * @param selected whether this option is currently selected
+     */
     public record SeasonOption(String value, String label, boolean selected) {
     }
 }

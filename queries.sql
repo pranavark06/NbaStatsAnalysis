@@ -18,6 +18,17 @@ WHERE username = ?;
 INSERT INTO users (username, password_hash, full_name)
 VALUES (?, ?, ?);
 
+-- Purpose: Updates an existing user's profile information (full name or password hash) after they modify account settings.
+-- URL path: POST /profile/update
+UPDATE users
+SET full_name = ?, password_hash = ?
+WHERE id = ?;
+
+-- Purpose: Deletes a user account and all associated data when a user requests account closure.
+-- URL path: POST /profile/delete
+DELETE FROM users
+WHERE id = ?;
+
 -- Purpose: Retrieves draft picks for the Draft Explorer page, with optional filtering by draft year and by player or team text.
 -- URL path: GET /draft
 SELECT dh.season,
@@ -230,11 +241,19 @@ ORDER BY
 		+ 0.4 * CAST(COALESCE(NULLIF(pgs.FGM,''),'0') AS DECIMAL(10,2))
 		- 0.7 * CAST(COALESCE(NULLIF(pgs.FGA,''),'0') AS DECIMAL(10,2))
 	, 1) DESC
-    
-SELECT * FROM game ORDER BY game_date DESC LIMIT 100
-    
+
+-- Purpose: Retrieves the 100 most recent games ordered by date for the home page and recent games list.
+-- URL path: GET /games
+SELECT * FROM game ORDER BY game_date DESC LIMIT 100;
+
+-- Purpose: Retrieves all games involving a specific team (as home or away team) for the team games filter page.
+-- URL path: GET /games/team/{team}
 SELECT * FROM game WHERE team_abbreviation_home = ? OR team_abbreviation_away = ? ORDER BY game_date DESC;
-	
+
+-- Purpose: Retrieves all games within a specified date range for the date filter on the games browsing page.
+-- URL path: GET /games?startDate={startDate}&endDate={endDate}
 SELECT * FROM game WHERE game_date BETWEEN ? AND ? ORDER BY game_date DESC;
-	
+
+-- Purpose: Retrieves a distinct list of all team abbreviations for the team dropdown filter in the games list.
+-- URL path: GET /api/teams/abbreviations (used for populating form dropdowns)
 SELECT DISTINCT team_abbreviation_home FROM game ORDER BY team_abbreviation_home;

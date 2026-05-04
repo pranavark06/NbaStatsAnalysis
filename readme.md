@@ -34,12 +34,21 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Thanks to all our Contributors!](#contributions)
+- [Team Members (Group 16)](#team-members-group-16)
+- [Contributions](#contributions)
+- [Project Dependencies](#project-dependencies)
+  - [Package Requirements](#package-requirements)
+  - [Technologies Used](#technologies-used)
+  - [Third-Party Libraries Used](#third-party-libraries-used)
+- [Project Structure](#project-structure)
+  - [Database](#database)
+  - [Test Users](#test-users)
 - [Installation](#installation)
   - [Installing Docker](#installing-docker)
   - [Docker Setup](#docker-setup)
   - [Running the Application](#running-the-application)
   - [Using the Application](#using-the-application)
+- [Why *CourtVision*? - Our Pitch](#why-courtvision---our-pitch)
 - [ER Diagram](#er-diagram)
 - [Have Questions?](#have-questions)
 </details>
@@ -79,13 +88,12 @@
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | prelim.pdf               | `Swap R.`          | `Described the domain, problem, solution, UIs, technologies, and made the ER Model`                                  |
-| db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
-| db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
+| db_design.pdf            | `Swap R.`          | `Created the ER Model, identified functional dependencies, and normalized model to BCNF form`                        |   
 | ddl.sql                  | `Tyler L.`         | `Leveraged SQL DDL statements to digest raw kaggle data to seed the database`                                        |
-| queries.sql              | `TBD`              | `TBD`                                                                                                                |
-| data.sql                 | `TBD`              | `TBD`                                                                                                                |
-| datasource.txt           | `TBD`              | `TBD`                                                                                                                |
-| perf.txt                 | `Neil C.`          | `Documented queries that used indexing and the difference in time consumption of the queries with and without indexing`                                                                                                               
+| queries.sql              | `Tyler L.`         | `Wrote more than 6 sql statements using aggregation, CRUD, and SQL prepared statements`                              |
+| data.sql                 | `Tyler L.`         | `Demonstrated the app as SQL insertions in a file `                                                                  |
+| datasource.txt           | `Pranav A.`        | `Describes the data source and how it was cleaned/generated to be ingested into the tables`                          |
+| perf.txt                 | `Neil C.`          | `Documented queries that used indexing and the difference in time consumption of the queries with/without indexing`  |
 | security.txt             | `Tyler L.`         | `Implemented user login using hashed passwords.`                                                                     |
 | security.txt             | `Tyler L.`         | `Documented user login best OWASP security practices to prevent against sql injection.`                              |
 | Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`                                                                |
@@ -93,8 +101,8 @@
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 | F3: Matchup Predictor    | `Swap R.`          | `Built a pure Java data science feature that trains a logistic matchup model from SQL-aggregated NBA game data`      |
-| F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential'   |                                                                            |
-| F5: TBD                  | `SriRam S.`        | `TBD`                                                                                                                |
+| F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential`   |
+| F5: TBD                  | `SriRam S.`        | `Generated a User Profile view to allow for profile changes or deletions`                                            |
 
 <p align="center">
   <img src="https://github.com/thespcrewroy/MicroBloggr/blob/main/groupcontributionform.png" alt="Group Contribution Form" width="800" />
@@ -259,7 +267,9 @@ The problem this application addresses is making NBA data easier to access, sear
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#er-diagram)
 ## ER Diagram
 
-[PLACEHOLDER ER DIGRAM]
+<p align="center">
+  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/ermodel.png" alt="ER Model" width="800" />
+</p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
 

@@ -1,6 +1,11 @@
 package G16.menik._0.models;
 
-/**\n * Represents detailed statistics for a single player in a single NBA game.\n * Contains player identification, game information, performance metrics, and biographical data\n * including shooting percentages, rebounds, assists, and scoring information.\n */\npublic class PlayerGameStats {
+/**
+ * Represents detailed statistics for a single player in a single NBA game.
+ * Contains player identification, game information, performance metrics, and biographical data
+ * including shooting percentages, rebounds, assists, and scoring information.
+ */
+public class PlayerGameStats {
     private String gameId;
     private String teamId;
     private String teamAbbreviation;
