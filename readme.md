@@ -34,12 +34,21 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Thanks to all our Contributors!](#contributions)
+- [Team Members (Group 16)](#team-members-group-16)
+- [Contributions](#contributions)
+- [Project Dependencies](#project-dependencies)
+  - [Package Requirements](#package-requirements)
+  - [Technologies Used](#technologies-used)
+  - [Third-Party Libraries Used](#third-party-libraries-used)
+- [Project Structure](#project-structure)
+  - [Database](#database)
+  - [Test Users](#test-users)
 - [Installation](#installation)
   - [Installing Docker](#installing-docker)
   - [Docker Setup](#docker-setup)
   - [Running the Application](#running-the-application)
   - [Using the Application](#using-the-application)
+- [Why *CourtVision*? - Our Pitch](#why-courtvision---our-pitch)
 - [ER Diagram](#er-diagram)
 - [Have Questions?](#have-questions)
 </details>
@@ -259,7 +268,9 @@ The problem this application addresses is making NBA data easier to access, sear
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#er-diagram)
 ## ER Diagram
 
-[PLACEHOLDER ER DIGRAM]
+<p align="center">
+  <img src="https://github.com/thespcrewroy/MicroBloggr/blob/main/ermodel.png" alt="Group Contribution Form" width="800" />
+</p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
 
