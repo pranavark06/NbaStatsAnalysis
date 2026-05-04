@@ -113,7 +113,7 @@ Docker version 28.3.2, build 578ccf6
 Apache Maven 3.9.11
 ```
 
-## Technologies Used
+### Technologies Used
 ```
 Spring Boot
 Spring Boot Web
