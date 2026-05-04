@@ -159,6 +159,7 @@ input::placeholder {
     flex-wrap: wrap;
     gap: 0.85rem;
     margin-top: 1.8rem;
+    margin-bottom: 1.5rem;
 }
 
 .button {
@@ -1010,14 +1011,14 @@ button.button {
 }
 
 .filters select {
-    padding: 0.7rem 1.2rem;
+    width: 80%;
+    margin-top: 0.5rem;
+    padding: 0.98rem 1rem;
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 16px;
     background: var(--input-bg);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: border-color 160ms ease, box-shadow 160ms ease;
-    min-width: 180px;
+    color: var(--text);
+    font: inherit;
 }
 
 .filters select:focus {

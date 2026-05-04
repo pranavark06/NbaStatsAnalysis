@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import G16.menik._0.models.Game;
 import G16.menik._0.models.PlayerGameStats;
 import G16.menik._0.services.GameService;
+import G16.menik._0.services.GameService.TeamOption;
 import G16.menik._0.services.PlayerGameStatsService;
 import G16.menik._0.services.UserService;
 
@@ -31,7 +32,7 @@ public class GameController {
     @GetMapping("/games")
     public String games(Model model) {
         List<Game> games = new ArrayList<>();
-        List<String> teams = new ArrayList<>();
+        List<TeamOption> teams = new ArrayList<>();
         try {
             games = gameService.getRecentGames(1314);
             teams = gameService.getAllTeams();

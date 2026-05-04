@@ -9,13 +9,13 @@
             <select id="teamFilter" onchange="filterByTeam(this.value)">
                 <option value="">All Teams</option>
                 {{#teams}}
-                <option value="{{.}}">{{.}}</option>
+                <option value="{{abbreviation}}">{{displayName}}</option>
                 {{/teams}}
             </select>
         </div>
 
-        <div class="button-group rankings-nav">
-        <a class="button secondary" href="/home">Back Home</a>
+        <div class="button-group">
+            <a class="button secondary" href="/home">Back Home</a>
         </div>
 
         <div class="games-list">
