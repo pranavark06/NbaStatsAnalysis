@@ -3,7 +3,7 @@
     {{> header}}
 
     <section class="predictor-panel" aria-label="Prediction controls">
-        <form method="get" action="/predictor" class="predictor-form">
+        <form id="predictorForm" method="get" action="/predictor" class="predictor-form">
             <div class="predictor-field-row">
                 <div>
                     <label for="homeTeam">Home Team</label>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="button-group">
-                <button class="button primary" type="submit">Run Prediction</button>
+                <button id="predictorSubmit" class="button primary" type="submit">Run Prediction</button>
                 <a class="button secondary" href="/home">Back Home</a>
             </div>
         </form>
@@ -57,7 +57,7 @@
                             <strong>{{homeWinProbability}}</strong>
                         </div>
                         <div class="probability-track">
-                            <div class="probability-fill home" style="width: {{homeProbabilityWidth}}"></div>
+                            <div id="homeProbabilityFill" class="probability-fill home" data-probability="{{homeProbabilityWidth}}" style="width: {{homeProbabilityWidth}}"></div>
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                             <strong>{{awayWinProbability}}</strong>
                         </div>
                         <div class="probability-track">
-                            <div class="probability-fill away" style="width: {{awayProbabilityWidth}}"></div>
+                            <div id="awayProbabilityFill" class="probability-fill away" data-probability="{{awayProbabilityWidth}}" style="width: {{awayProbabilityWidth}}"></div>
                         </div>
                     </div>
                 </div>
@@ -121,4 +121,48 @@
         </div>
     {{/hasPrediction}}
 </div>
+<script>
+    (() => {
+        const form = document.querySelector("#predictorForm");
+        const submitButton = document.querySelector("#predictorSubmit");
+        const homeFill = document.querySelector("#homeProbabilityFill");
+        const awayFill = document.querySelector("#awayProbabilityFill");
+        const storageKey = "courtvisionPredictorProbabilities";
+
+        const parsePercent = (value) => {
+            const parsed = Number.parseFloat(String(value || "").replace("%", ""));
+            return Number.isFinite(parsed) ? parsed : 0;
+        };
+
+        const current = {
+            home: parsePercent(homeFill?.dataset.probability),
+            away: parsePercent(awayFill?.dataset.probability)
+        };
+
+        const previous = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+        if (homeFill && awayFill && previous) {
+            homeFill.style.width = `${previous.home}%`;
+            awayFill.style.width = `${previous.away}%`;
+            homeFill.classList.add("probability-fill-animate");
+            awayFill.classList.add("probability-fill-animate");
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    homeFill.style.width = `${current.home}%`;
+                    awayFill.style.width = `${current.away}%`;
+                });
+            });
+        }
+
+        sessionStorage.setItem(storageKey, JSON.stringify(current));
+
+        form?.addEventListener("submit", () => {
+            if (homeFill && awayFill) {
+                sessionStorage.setItem(storageKey, JSON.stringify(current));
+            }
+            submitButton.textContent = "Running...";
+            submitButton.disabled = true;
+        });
+    })();
+</script>
 {{> footer}}

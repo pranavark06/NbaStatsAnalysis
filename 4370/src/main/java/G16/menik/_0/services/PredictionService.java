@@ -47,7 +47,7 @@ public class PredictionService {
         String winner = probability >= 0.5 ? home.teamName() : away.teamName();
         String confidence = edge >= 0.20 ? "High" : edge >= 0.10 ? "Medium" : "Low";
         String recommendation = edge < 0.06
-                ? "This matchup profiles as close to a toss-up."
+                ? "This matchup is a toss-up between both tams."
                 : winner + " is favored by the model.";
 
         return new PredictionResult(
