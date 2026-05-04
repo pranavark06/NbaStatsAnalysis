@@ -269,7 +269,7 @@ The problem this application addresses is making NBA data easier to access, sear
 ## ER Diagram
 
 <p align="center">
-  <img src="https://github.com/thespcrewroy/MicroBloggr/blob/main/ermodel.png" alt="Group Contribution Form" width="800" />
+  <img src="https://github.com/thespcrewroy/4370/blob/main/assets/ermodel.png" alt="ER Model" width="800" />
 </p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#feedback)
