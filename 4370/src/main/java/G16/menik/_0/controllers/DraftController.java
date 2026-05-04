@@ -35,7 +35,9 @@ public class DraftController {
         model.addAttribute("season", trimmedSeason);
         model.addAttribute("query", trimmedQuery);
         model.addAttribute("hasSearch", hasSearch);
-        model.addAttribute("picks", hasSearch ? findPicks(trimmedSeason, trimmedQuery.toLowerCase()) : List.of());
+        List<DraftPickView> picks = hasSearch ? findPicks(trimmedSeason, trimmedQuery.toLowerCase()) : List.of();
+        model.addAttribute("picks", picks);
+        model.addAttribute("pickCount", picks.size());
         return "draft";
     }
 

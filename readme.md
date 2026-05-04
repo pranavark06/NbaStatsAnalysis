@@ -34,19 +34,12 @@
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Thanks to all our Contributors!](#thanks-to-all-our-contributors)
+- [Thanks to all our Contributors!](#contributions)
 - [Installation](#installation)
-  - [Requirements](#requirements)
   - [Installing Docker](#installing-docker)
   - [Docker Setup](#docker-setup)
   - [Running the Application](#running-the-application)
   - [Using the Application](#using-the-application)
-- [NonTrivial New Feature - Trending Page](#nontrivial-new-feature---trending-page)
-  - [What the page shows](#what-the-page-shows)
-  - [Request flow and behavior](#request-flow-and-behavior)
-  - [Implementation locations](#implementation-locations)
-  - [SQL used by the feature](#sql-used-by-the-feature)
-  - [Why this is non-trivial](#why-this-is-non-trivial)
 - [ER Diagram](#er-diagram)
 - [Have Questions?](#have-questions)
 </details>
@@ -86,8 +79,8 @@
 |     Contribution         |    Member Name     |                                    Description                                                                       |
 | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | prelim.pdf               | `TBD`              | `TBD`                                                                                                                |
-| prelim.pdf               | `Swap R.`          | `Preliminary ER Diagram`                                                                                             |
-| db_design.pdf            | `Swap R.`          | `ER Diagram`                                                                                                         |
+| prelim.pdf               | `Swap R.`          | `TBD`                                                                                                                |
+| db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
 | db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
 | ddl.sql                  | `Tyler L.`         | `Digested data by filtering raw kaggle data and seeded the database with SQL DDL`                                    |
 | queries.sql              | `TBD`              | `TBD`                                                                                                                |
@@ -112,7 +105,7 @@
 
 ## Project Dependencies
 
-### Technology Requirements
+### Package Requirements
 ```
 Java (jdk 21.0.8 2025-07-15 LTS) programming language
 MySQL 8 database management system
@@ -120,9 +113,23 @@ Docker version 28.3.2, build 578ccf6
 Apache Maven 3.9.11
 ```
 
-### Third-Party Libraries
+## Technologies Used
 ```
-[PLACEHOLDER]
+Spring Boot
+Spring Boot Web
+Spring Boot Mustache
+Spring Boot JDBC
+Spring Security Crypto
+MySQL Connector/J
+HTML/CSS
+```
+
+> [!IMPORTANT]\
+> All of the above libraries were provided in Project 2. Thus, no written consent is required.
+
+### Third-Party Libraries Used
+```
+N/A
 ```
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#project-structure)
@@ -268,7 +275,7 @@ The problem this application addresses is making NBA data easier to access, sear
 * [Swapnil Roy](mailto:sr42946@uga.edu)
 * [Pranav Arkatala](mailto:pa38192@uga.edu)
 
-> If you stumble upon an issue or have a feature request you are very welcome to open a Github issue or pull request.
+> If you stumble upon an issue or have a feature request you are very welcome to open a Github issue or PR.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
