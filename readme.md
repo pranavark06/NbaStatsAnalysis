@@ -82,11 +82,11 @@
 | prelim.pdf               | `Swap R.`          | `TBD`                                                                                                                |
 | db_design.pdf            | `Swap R.`          | `TBD`                                                                                                                |
 | db_design.pdf            | `TBD`              | `TBD`                                                                                                                |
-| ddl.sql                  | `Tyler L.`         | `Digested data by filtering raw kaggle data and seeded the database with SQL DDL`                                    |
+| ddl.sql                  | `Tyler L.`         | `Leveraged SQL DDL statements to digest raw kaggle data to seed the database`                                        |
 | queries.sql              | `TBD`              | `TBD`                                                                                                                |
 | data.sql                 | `TBD`              | `TBD`                                                                                                                |
 | datasource.txt           | `TBD`              | `TBD`                                                                                                                |
-| perf.txt                 | `Neil C.`          | `TBD`                                                                                                                |
+| perf.txt                 | `Neil C.`          | `Documented queries that used indexing and the difference in time consumption of the queries with and without indexing`                                                                                                               
 | security.txt             | `Tyler L.`         | `Implemented user login using hashed passwords.`                                                                     |
 | security.txt             | `Tyler L.`         | `Documented user login best OWASP security practices to prevent against sql injection.`                              |
 | Readme.txt               | `Tyler L.`         | `Team name and contributions, database name sections`                                                                |
@@ -94,7 +94,7 @@
 | F1: Draft Explore        | `Tyler L.`         | `Built a draft search page where users can look up draft picks`                                                      |
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 | F3: Matchup Predictor    | `Swap R.`          | `Built a pure Java data science feature that trains a logistic matchup model from SQL-aggregated NBA game data`      |
-| F4: TBD                  | `Neil C.`          | `TBD`                                                                                                                |
+| F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential'   |                                                                            |
 | F5: TBD                  | `SriRam S.`        | `TBD`                                                                                                                |
 
 <p align="center">
@@ -113,7 +113,7 @@ Docker version 28.3.2, build 578ccf6
 Apache Maven 3.9.11
 ```
 
-## Technologies Used
+### Technologies Used
 ```
 Spring Boot
 Spring Boot Web
