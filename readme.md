@@ -275,7 +275,7 @@ The problem this application addresses is making NBA data easier to access, sear
 * [Swapnil Roy](mailto:sr42946@uga.edu)
 * [Pranav Arkatala](mailto:pa38192@uga.edu)
 
-> If you stumble upon an issue or have a feature request you are very welcome to open a Github issue or pull request.
+> If you stumble upon an issue or have a feature request you are very welcome to open a Github issue or PR.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
