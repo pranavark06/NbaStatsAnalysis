@@ -100,6 +100,13 @@ public class GameController {
         return "game_detail";
     }
 
+    /**
+     * Displays all games for a specific team abbreviation.
+     *
+     * @param team the team abbreviation from the URL path
+     * @param model the Spring model to pass data to the template
+     * @return the view name "games" for rendering team-filtered games
+     */
     @GetMapping("/games/team/{team}")
     public String gamesByTeam(@PathVariable String team, Model model) {
         List<Game> games = new ArrayList<>();

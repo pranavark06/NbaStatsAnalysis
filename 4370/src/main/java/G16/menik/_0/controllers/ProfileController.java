@@ -123,6 +123,12 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Deletes the currently authenticated user account.
+     * Logs the user out after successful deletion.
+     *
+     * @return a redirect to landing page on success, or back to profile with error on failure
+     */
     @PostMapping("/profile/delete")
     public String deleteAccount() {
         try {

@@ -64,6 +64,11 @@ public class RankingsController {
         return "rankings";
     }
 
+    /**
+     * Retrieves available regular-season identifiers for ranking selection.
+     *
+     * @return a list of season IDs ordered from newest to oldest
+     */
     private List<String> findSeasons() {
         String sql = """
                 SELECT DISTINCT season_id
@@ -185,6 +190,20 @@ public class RankingsController {
         return rankings;
     }
 
+    /**
+     * View model for a team ranking row displayed on the rankings page.
+     *
+     * @param rankNumber ordinal rank of the team
+     * @param teamName full team name
+     * @param abbreviation team abbreviation
+     * @param gamesPlayed total games played
+     * @param wins number of wins
+     * @param losses number of losses
+     * @param winPct win percentage
+     * @param pointsFor average points scored
+     * @param pointsAgainst average points allowed
+     * @param pointDiff average point differential
+     */
     public record TeamRankingView(int rankNumber, String teamName, String abbreviation, int gamesPlayed, int wins, int losses, BigDecimal winPct, BigDecimal pointsFor, BigDecimal pointsAgainst, BigDecimal pointDiff) {
     }
 

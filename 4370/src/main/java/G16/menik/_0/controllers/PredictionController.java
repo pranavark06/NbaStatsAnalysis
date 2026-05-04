@@ -74,6 +74,15 @@ public class PredictionController {
         }
     }
 
+    /**
+     * Chooses a valid team abbreviation from request input, preferred fallback, or indexed fallback.
+     *
+     * @param requestedTeam the requested team abbreviation from user input
+     * @param teams available team options
+     * @param preferredTeam preferred fallback team abbreviation
+     * @param fallbackIndex index-based fallback when preferred team is unavailable
+     * @return a valid team abbreviation, or empty string when no teams are available
+     */
     private String chooseTeam(String requestedTeam, List<TeamOption> teams, String preferredTeam, int fallbackIndex) {
         String normalized = requestedTeam == null ? "" : requestedTeam.trim().toUpperCase();
         if (containsTeam(teams, normalized)) {
@@ -89,10 +98,24 @@ public class PredictionController {
         return teams.get(index).abbreviation();
     }
 
+    /**
+     * Checks whether a team abbreviation exists in the available team list.
+     *
+     * @param teams available team options
+     * @param abbreviation team abbreviation to check
+     * @return {@code true} if the team exists; otherwise {@code false}
+     */
     private boolean containsTeam(List<TeamOption> teams, String abbreviation) {
         return teams.stream().anyMatch(team -> team.abbreviation().equals(abbreviation));
     }
 
+    /**
+     * Maps team options into selectable view options for rendering in the UI.
+     *
+     * @param teams available team options
+     * @param selectedTeam currently selected team abbreviation
+     * @return a list of selectable team options for the template
+     */
     private List<SelectableTeamOption> selectableTeams(List<TeamOption> teams, String selectedTeam) {
         return teams.stream()
                 .map(team -> new SelectableTeamOption(
@@ -102,6 +125,13 @@ public class PredictionController {
                 .toList();
     }
 
+    /**
+     * View model representing a selectable team option in the predictor form.
+     *
+     * @param abbreviation team abbreviation value
+     * @param displayName team label shown in dropdowns
+     * @param selected whether this option is currently selected
+     */
     public record SelectableTeamOption(String abbreviation, String displayName, boolean selected) {
     }
 }
