@@ -1,23 +1,43 @@
 package G16.menik._0.controllers;
 
-import G16.menik._0.services.UserService;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import G16.menik._0.services.UserService;
+
+/**
+ * Controller for handling user profile management.
+ * Manages profile display, name updates, username changes, and password modifications.
+ */
 @Controller
 public class ProfileController {
 
     private final UserService userService;
 
+    /**
+     * Constructs ProfileController with the specified UserService.
+     *
+     * @param userService the service for managing user profile updates
+     */
     public ProfileController(UserService userService) {
         this.userService = userService;
     }
 
+    /**
+     * Displays the user's profile page with current account information.
+     * Shows success or error messages from previous update attempts.
+     *
+     * @param success optional success message parameter from completed updates
+     * @param error optional error message parameter from failed updates
+     * @param model the Spring model to pass data to the template
+     * @return the view name "profile" for rendering the profile page
+     */
     @GetMapping("/profile")
     public String showProfile(@RequestParam(value = "success", required = false) String success,
                               @RequestParam(value = "error", required = false) String error,
@@ -32,6 +52,13 @@ public class ProfileController {
         return "profile";
     }
 
+    /**
+     * Updates the user's full name.
+     * Redirects to profile page with success or error message.
+     *
+     * @param fullName the new full name to update
+     * @return a redirect to the profile page
+     */
     @PostMapping("/profile/update-name")
     public String updateName(@RequestParam("fullName") String fullName) {
         try {
@@ -44,6 +71,14 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Updates the user's username.
+     * Validates that the new username is not already taken.
+     * Redirects to profile page with success or error message.
+     *
+     * @param username the new username to update
+     * @return a redirect to the profile page
+     */
     @PostMapping("/profile/update-username")
     public String updateUsername(@RequestParam("username") String username) {
         try {
@@ -56,6 +91,16 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Updates the user's password after verification of the current password.
+     * Validates that new passwords match and meet minimum length requirements.
+     * Redirects to profile page with success or error message.
+     *
+     * @param currentPassword the user's current password for verification
+     * @param newPassword the new password to set
+     * @param confirmPassword confirmation of the new password
+     * @return a redirect to the profile page
+     */
     @PostMapping("/profile/update-password")
     public String updatePassword(@RequestParam("currentPassword") String currentPassword,
                                  @RequestParam("newPassword") String newPassword,

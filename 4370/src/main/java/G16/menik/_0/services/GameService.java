@@ -14,16 +14,31 @@ import org.springframework.stereotype.Service;
 
 import G16.menik._0.models.Game;
 
+/**
+ * Service class for retrieving NBA game data from the database.
+ * Provides methods to fetch games by various criteria including date range, team, and game ID.
+ */
 @Service
 public class GameService {
 
     private final DataSource dataSource;
 
+    /**
+     * Constructs GameService with the specified DataSource.
+     *
+     * @param dataSource the data source for database connections
+     */
     @Autowired
     public GameService(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
+    /**
+     * Retrieves all games from the database, limited to the 100 most recent.
+     *
+     * @return a list of Game objects ordered by game date descending
+     * @throws SQLException if a database error occurs
+     */
     public List<Game> getAllGames() throws SQLException {
         String sql = "SELECT * FROM game ORDER BY game_date DESC LIMIT 100";
         List<Game> games = new ArrayList<>();
@@ -39,6 +54,13 @@ public class GameService {
         return games;
     }
 
+    /**
+     * Retrieves the most recent games up to the specified limit.
+     *
+     * @param limit the maximum number of games to retrieve
+     * @return a list of Game objects ordered by game date descending
+     * @throws SQLException if a database error occurs
+     */
     public List<Game> getRecentGames(int limit) throws SQLException {
         String sql = "SELECT * FROM game ORDER BY game_date DESC LIMIT ?";
         List<Game> games = new ArrayList<>();
@@ -57,6 +79,13 @@ public class GameService {
         return games;
     }
 
+    /**
+     * Retrieves a specific game by its unique game ID.
+     *
+     * @param gameId the unique identifier for the game
+     * @return the Game object if found, or {@code null} if not found
+     * @throws SQLException if a database error occurs
+     */
     public Game getGameById(String gameId) throws SQLException {
         String sql = "SELECT * FROM game WHERE game_id = ?";
 
@@ -74,6 +103,14 @@ public class GameService {
         return null;
     }
 
+    /**
+     * Retrieves all games involving a specific team.
+     * Includes games where the team is either home or away.
+     *
+     * @param teamAbbreviation the team's NBA abbreviation (e.g., "LAL", "BOS")
+     * @return a list of Game objects involving the specified team, ordered by date descending
+     * @throws SQLException if a database error occurs
+     */
     public List<Game> getGamesByTeam(String teamAbbreviation) throws SQLException {
         String sql = "SELECT * FROM game WHERE team_abbreviation_home = ? OR team_abbreviation_away = ? ORDER BY game_date DESC";
         List<Game> games = new ArrayList<>();
@@ -93,6 +130,14 @@ public class GameService {
         return games;
     }
 
+    /**
+     * Retrieves all games within a specified date range.
+     *
+     * @param startDate the start date for the range (format: YYYY-MM-DD)
+     * @param endDate the end date for the range (format: YYYY-MM-DD)
+     * @return a list of Game objects within the date range, ordered by date descending
+     * @throws SQLException if a database error occurs
+     */
     public List<Game> getGamesByDateRange(String startDate, String endDate) throws SQLException {
         String sql = "SELECT * FROM game WHERE game_date BETWEEN ? AND ? ORDER BY game_date DESC";
         List<Game> games = new ArrayList<>();

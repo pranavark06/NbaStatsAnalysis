@@ -17,6 +17,10 @@ import G16.menik._0.services.GameService.TeamOption;
 import G16.menik._0.services.PlayerGameStatsService;
 import G16.menik._0.services.UserService;
 
+/**
+ * Controller for handling NBA game browsing and detailed game statistics.
+ * Manages game list display and individual game detail views with player statistics.
+ */
 @Controller
 public class GameController {
 
@@ -29,6 +33,13 @@ public class GameController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Displays a list of recent NBA games.
+     * Retrieves the most recent games and available teams for filtering.
+     *
+     * @param model the Spring model to pass data to the template
+     * @return the view name "games" for rendering the games list page
+     */
     @GetMapping("/games")
     public String games(Model model) {
         List<Game> games = new ArrayList<>();
@@ -48,6 +59,15 @@ public class GameController {
         return "games";
     }
 
+    /**
+     * Displays detailed statistics for a specific game including player box scores.
+     * Retrieves player statistics for both home and away teams.
+     * Redirects to games list if the specified game is not found.
+     *
+     * @param gameId the unique identifier of the game
+     * @param model the Spring model to pass data to the template
+     * @return the view name "game_detail" for rendering game details, or redirect to games if not found
+     */
     @GetMapping("/game/{gameId}")
     public String gameDetail(@PathVariable String gameId, Model model) {
         Game game = null;

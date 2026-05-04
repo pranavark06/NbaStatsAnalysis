@@ -15,15 +15,32 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Controller for displaying NBA team rankings based on season statistics.
+ * Ranks teams by wins and point differential with configurable minimum games filter.
+ */
 @Controller
 public class RankingsController {
 
     private final DataSource dataSource;
 
+    /**
+     * Constructs RankingsController with the specified DataSource.
+     *
+     * @param dataSource the data source for database connections
+     */
     public RankingsController(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
+    /**
+     * Displays the team rankings page for the 2018-19 NBA regular season.
+     * Teams are ranked by wins and point differential, filtered by minimum games played.
+     *
+     * @param minGames the minimum number of games a team must have played to be included (default: 10, range: 1-82)
+     * @param model the Spring model to pass data to the template
+     * @return the view name "rankings" for rendering the team rankings page
+     */
     @GetMapping("/rankings")
     public String rankings(@RequestParam(value = "season", defaultValue = "") String season,
                            Model model) {

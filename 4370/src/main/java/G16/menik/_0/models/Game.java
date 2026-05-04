@@ -2,7 +2,7 @@ package G16.menik._0.models;
 
 import java.sql.Timestamp;
 
-public class Game {
+/**\n * Represents an NBA game with comprehensive statistics for both home and away teams.\n * Contains game identification, timing information, and detailed performance metrics\n * including field goals, free throws, rebounds, assists, and scoring data.\n */\npublic class Game {
     private String seasonId;
     private String teamIdHome;
     private String teamAbbreviationHome;
