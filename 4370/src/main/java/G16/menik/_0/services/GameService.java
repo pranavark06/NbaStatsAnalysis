@@ -112,19 +112,30 @@ public class GameService {
         return games;
     }
 
-    public List<String> getAllTeams() throws SQLException {
-        String sql = "SELECT DISTINCT team_abbreviation_home FROM game ORDER BY team_abbreviation_home";
-        List<String> teams = new ArrayList<>();
+    public List<TeamOption> getAllTeams() throws SQLException {
+        String sql = """
+                SELECT team_abbreviation_home AS abbreviation,
+                       MAX(team_name_home) AS team_name
+                FROM game
+                GROUP BY team_abbreviation_home
+                ORDER BY team_name
+                """;
+        List<TeamOption> teamOptions = new ArrayList<>();
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
-                teams.add(rs.getString("team_abbreviation_home"));
+                String abbreviation = rs.getString("abbreviation");
+                String teamName = rs.getString("team_name");
+                teamOptions.add(new TeamOption(abbreviation, teamName + " (" + abbreviation + ")"));
             }
         }
-        return teams;
+        return teamOptions;
+    }
+
+    public record TeamOption(String abbreviation, String displayName) {
     }
 
     private Game mapRow(ResultSet rs) throws SQLException {

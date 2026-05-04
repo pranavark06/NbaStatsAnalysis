@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.sql.DataSource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +33,7 @@ public class DraftController {
 
         model.addAttribute("title", "Draft Explorer");
         model.addAttribute("pageTitle", "Draft Explorer");
-        model.addAttribute("pageSubtitle", "Browse draft picks by year, player, or team.");
+        model.addAttribute("pageSubtitle", "Search by draft year, player, or team to see matching draft picks.");
         model.addAttribute("season", trimmedSeason);
         model.addAttribute("query", trimmedQuery);
         model.addAttribute("hasSearch", hasSearch);

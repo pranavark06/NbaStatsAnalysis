@@ -9,9 +9,13 @@
             <select id="teamFilter" onchange="filterByTeam(this.value)">
                 <option value="">All Teams</option>
                 {{#teams}}
-                <option value="{{.}}">{{.}}</option>
+                <option value="{{abbreviation}}">{{displayName}}</option>
                 {{/teams}}
             </select>
+        </div>
+
+        <div class="button-group">
+            <a class="button secondary" href="/home">Back Home</a>
         </div>
 
         <div class="games-list">
@@ -79,8 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
             year: 'numeric', 
             month: 'short', 
             day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
         });
     });
 });
