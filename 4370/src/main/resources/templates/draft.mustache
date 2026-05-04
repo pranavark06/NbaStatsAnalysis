@@ -1,40 +1,115 @@
 {{> head}}
-<div class="page-shell form-shell">
+<div class="page-shell form-shell draft-shell">
     {{> header}}
 
-    <form method="get" action="/draft">
-        <label for="season">Draft Year</label>
-        <input id="season" name="season" type="text" value="{{season}}" placeholder="2022"/>
+    <section class="draft-search-panel" aria-label="Draft search">
+        <form id="draftSearchForm" class="draft-search-form" method="get" action="/draft" autocomplete="off">
+            <div class="draft-field-row">
+                <div>
+                    <label for="season">Draft Year</label>
+                    <input id="season" name="season" type="text" inputmode="numeric" value="{{season}}" placeholder="2022"/>
+                </div>
 
-        <label for="query">Player or Team</label>
-        <input id="query" name="query" type="text" value="{{query}}" placeholder="James, Lakers, BOS"/>
+                <div>
+                    <label for="query">Player or Team</label>
+                    <input id="query" name="query" type="text" value="{{query}}" placeholder="James, Lakers, BOS"/>
+                </div>
+            </div>
 
-        <div class="button-group">
-            <button class="button primary" type="submit">Search Draft Picks</button>
-            <a class="button secondary" href="/home">Back Home</a>
-        </div>
-    </form>
+            <div class="button-group">
+                <button id="draftSubmit" class="button primary" type="submit">Search Draft Picks</button>
+                <a class="button secondary" href="/home">Back Home</a>
+            </div>
+        </form>
+    </section>
 
     {{#hasSearch}}
-        {{#picks}}
-            <div class="card draft-card">
-                <p class="draft-title">#{{overallPick}} {{playerName}} ({{season}})</p>
-                <p>Round {{roundNumber}}, pick {{roundPick}} by {{teamName}} ({{teamAbbreviation}})</p>
-                <p>{{position}} • {{school}} • {{country}}</p>
+        <div class="draft-results-header">
+            <div>
+                <h2>{{pickCount}} matching picks</h2>
             </div>
-        {{/picks}}
+        </div>
+
+        <div id="draftResults" class="draft-results">
+            {{#picks}}
+                <article class="card draft-card" data-player="{{playerName}}" data-team="{{teamName}}" data-year="{{season}}">
+                    <div class="draft-pick-badge">
+                        <span>#{{overallPick}}</span>
+                        <small>Pick</small>
+                    </div>
+
+                    <div class="draft-card-body">
+                        <div class="draft-card-topline">
+                            <p class="draft-title">{{playerName}}</p>
+                            <span class="draft-year">{{season}}</span>
+                        </div>
+
+                        <p class="draft-team">{{teamName}} <span>{{teamAbbreviation}}</span></p>
+
+                        <dl class="draft-meta">
+                            <div>
+                                <dt>Round</dt>
+                                <dd>{{roundNumber}}</dd>
+                            </div>
+                            <div>
+                                <dt>Round Pick</dt>
+                                <dd>{{roundPick}}</dd>
+                            </div>
+                            <div>
+                                <dt>Position</dt>
+                                <dd>{{position}}</dd>
+                            </div>
+                            <div>
+                                <dt>Origin</dt>
+                                <dd>{{school}} · {{country}}</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+            {{/picks}}
+        </div>
 
         {{^picks}}
-            <div class="card">
+            <div class="card draft-empty-state">
                 <p>No draft picks matched those filters.</p>
             </div>
         {{/picks}}
     {{/hasSearch}}
 
     {{^hasSearch}}
-        <div class="card">
+        <div class="card draft-empty-state">
             <p>Search by draft year, player, or team to see matching draft picks.</p>
         </div>
     {{/hasSearch}}
 </div>
+
+<script>
+    (() => {
+        const yearInput = document.querySelector("#season");
+        const queryInput = document.querySelector("#query");
+        const submitButton = document.querySelector("#draftSubmit");
+        const cards = [...document.querySelectorAll(".draft-card")];
+
+        yearInput?.addEventListener("input", () => {
+            yearInput.value = yearInput.value.replace(/[^\d]/g, "").slice(0, 4);
+        });
+
+        document.querySelector("#draftSearchForm")?.addEventListener("submit", () => {
+            submitButton.textContent = "Searching...";
+            submitButton.disabled = true;
+        });
+
+        cards.forEach((card, index) => {
+            card.style.setProperty("--draft-delay", `${Math.min(index, 10) * 45}ms`);
+        });
+
+        queryInput?.addEventListener("input", () => {
+            const query = queryInput.value.trim().toLowerCase();
+            cards.forEach((card) => {
+                const haystack = `${card.dataset.player} ${card.dataset.team}`.toLowerCase();
+                card.classList.toggle("draft-soft-match", query.length > 1 && haystack.includes(query));
+            });
+        });
+    })();
+</script>
 {{> footer}}
