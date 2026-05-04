@@ -33,7 +33,6 @@ public class RankingsController {
         }
 
         int safeMinGames = Math.max(1, Math.min(minGames, 82));
-        String currentSeason = selectedSeason;
 
         model.addAttribute("title", "Team Rankings");
         model.addAttribute("pageTitle", "Team Rankings");
