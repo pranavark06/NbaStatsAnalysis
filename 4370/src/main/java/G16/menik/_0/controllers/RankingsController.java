@@ -38,7 +38,7 @@ public class RankingsController {
         model.addAttribute("pageSubtitle", "Rank NBA teams by regular season wins and scoring margin.");
         final String currentSeason = selectedSeason;
         model.addAttribute("seasons", seasons.stream()
-                .map(value -> new SeasonOption(value, value.equals(currentSeason)))
+                .map(value -> new SeasonOption(value, formatSeasonLabel(value), value.equals(currentSeason)))
                 .toList());
         model.addAttribute("selectedSeason", selectedSeason);
         model.addAttribute("rankings", selectedSeason.isEmpty()
@@ -69,6 +69,17 @@ public class RankingsController {
             throw new RuntimeException("Failed to load seasons", e);
         }
         return seasons;
+    }
+
+    private String formatSeasonLabel(String seasonId) {
+        if (seasonId != null && seasonId.length() == 5 && seasonId.startsWith("2")) {
+            try {
+                int startYear = Integer.parseInt(seasonId.substring(1));
+                return startYear + "-" + String.format("%02d", (startYear + 1) % 100);
+            } catch (NumberFormatException ignored) {
+            }
+        }
+        return seasonId;
     }
 
     private List<TeamRankingView> findRankings(String season) {
@@ -160,6 +171,6 @@ public class RankingsController {
     public record TeamRankingView(int rankNumber, String teamName, String abbreviation, int gamesPlayed, int wins, int losses, BigDecimal winPct, BigDecimal pointsFor, BigDecimal pointsAgainst, BigDecimal pointDiff) {
     }
 
-    public record SeasonOption(String value, boolean selected) {
+    public record SeasonOption(String value, String label, boolean selected) {
     }
 }

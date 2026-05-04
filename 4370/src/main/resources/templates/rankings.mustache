@@ -9,11 +9,11 @@
         </div>
 
         <form method="get" action="/rankings" class="ranking-form">
-            <label for="season">Season ID</label>
+            <label for="season">Season</label>
             <div class="ranking-filter-row">
                 <select id="season" name="season">
                     {{#seasons}}
-                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
+                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>
                     {{/seasons}}
                 </select>
                 <button class="button primary" type="submit">Update</button>
