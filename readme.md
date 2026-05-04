@@ -27,6 +27,30 @@
 - **Powerful:** Feature-rich functionality: login, signup, game details, team rankings, draft exploration, etc.
 - **Practical:** SaaS project that demonstrates real-world Spring Boot, JDBC, MySQL, and web application design.
 
+<details>
+<summary>📖 Table of Contents</summary>
+<br />
+
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Thanks to all our Contributors!](#thanks-to-all-our-contributors)
+- [Installation](#installation)
+  - [Requirements](#requirements)
+  - [Installing Docker](#installing-docker)
+  - [Docker Setup](#docker-setup)
+  - [Running the Application](#running-the-application)
+  - [Using the Application](#using-the-application)
+- [NonTrivial New Feature - Trending Page](#nontrivial-new-feature---trending-page)
+  - [What the page shows](#what-the-page-shows)
+  - [Request flow and behavior](#request-flow-and-behavior)
+  - [Implementation locations](#implementation-locations)
+  - [SQL used by the feature](#sql-used-by-the-feature)
+  - [Why this is non-trivial](#why-this-is-non-trivial)
+- [ER Diagram](#er-diagram)
+- [Have Questions?](#have-questions)
+</details>
+
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#team)
 
 ## Team Members (Group 16)
@@ -192,6 +216,29 @@ Added Rows:
 ```console
 exit
 ```
+
+### Running the Application
+
+**OSX/Unix**
+```bash
+mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=8081'
+```
+
+**Windows CmdLinex**
+```sh
+mvn spring-boot:run -D"spring-boot.run.arguments=--server.port=8081"
+```
+
+**Windows Powershell**
+```shell
+mvn spring-boot:run --% -Dspring-boot.run.arguments="--server.port=8081"
+```
+
+### Using the Application
+
+Open the browser and navigate to the following URL: ```http://localhost:8081/```<br>
+
+Create an account and login!
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#why-us)
 ## Why *CourtVision*? - Our Pitch
