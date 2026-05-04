@@ -19,7 +19,9 @@
 <br />
 
 <div align="center">
-  [PLACEHOLDER]
+   <a href="https://www.youtube.com/watch?v=khdLcOCS-VY&t=0s">
+    <img src="https://img.youtube.com/vi/jszIvAnXiag/0.jpg" alt="CSCI x370 Microblogging Platform Demo" width="800">
+  </a>
   <p><b>CSCI x370 Courtvision Demo</b></p>
 </div>
 
