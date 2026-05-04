@@ -112,7 +112,7 @@
 
 ## Project Dependencies
 
-### Technology Requirements
+### Package Requirements
 ```
 Java (jdk 21.0.8 2025-07-15 LTS) programming language
 MySQL 8 database management system
@@ -122,21 +122,19 @@ Apache Maven 3.9.11
 
 ## Technologies Used
 ```
-- Java 21
-- Spring Boot
-- Spring Boot Web
-- Spring Boot Mustache
-- Spring Boot JDBC
-- Spring Security Crypto
-- MySQL Connector/J
-- MySQL 8.1.0
-- Docker
-- Maven
-- HTML
-- CSS
+Spring Boot
+Spring Boot Web
+Spring Boot Mustache
+Spring Boot JDBC
+Spring Security Crypto
+MySQL Connector/J
+HTML/CSS
 ```
 
-### Third-Party Libraries
+> [!IMPORTANT]\
+> All of the above libraries were provided in Project 2. Thus, no written consent is required.
+
+### Third-Party Libraries Used
 ```
 N/A
 ```
