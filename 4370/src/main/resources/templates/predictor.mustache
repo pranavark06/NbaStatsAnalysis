@@ -57,7 +57,7 @@
                             <strong>{{homeWinProbability}}</strong>
                         </div>
                         <div class="probability-track">
-                            <div id="homeProbabilityFill" class="probability-fill home" data-probability="{{homeProbabilityWidth}}" style="width: {{homeProbabilityWidth}}"></div>
+                            <div id="homeProbabilityFill" class="probability-fill" data-team="{{homeAbbreviation}}" data-probability="{{homeProbabilityWidth}}" style="width: {{homeProbabilityWidth}}"></div>
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                             <strong>{{awayWinProbability}}</strong>
                         </div>
                         <div class="probability-track">
-                            <div id="awayProbabilityFill" class="probability-fill away" data-probability="{{awayProbabilityWidth}}" style="width: {{awayProbabilityWidth}}"></div>
+                            <div id="awayProbabilityFill" class="probability-fill" data-team="{{awayAbbreviation}}" data-probability="{{awayProbabilityWidth}}" style="width: {{awayProbabilityWidth}}"></div>
                         </div>
                     </div>
                 </div>
@@ -128,6 +128,57 @@
         const homeFill = document.querySelector("#homeProbabilityFill");
         const awayFill = document.querySelector("#awayProbabilityFill");
         const storageKey = "courtvisionPredictorProbabilities";
+        const teamGradients = {
+            ATL: "linear-gradient(90deg, #E03A3E, #C1D32F)",
+            BOS: "linear-gradient(90deg, #007A33, #BA9653)",
+            BKN: "linear-gradient(90deg, #000000, #767676)",
+            CHA: "linear-gradient(90deg, #1D1160, #00788C)",
+            CHI: "linear-gradient(90deg, #CE1141, #000000)",
+            CLE: "linear-gradient(90deg, #860038, #FDBB30)",
+            DAL: "linear-gradient(90deg, #00538C, #002B5E)",
+            DEN: "linear-gradient(90deg, #0E2240, #FEC524)",
+            DET: "linear-gradient(90deg, #C8102E, #1D42BA)",
+            GSW: "linear-gradient(90deg, #1D428A, #FFC72C)",
+            HOU: "linear-gradient(90deg, #CE1141, #000000)",
+            IND: "linear-gradient(90deg, #002D62, #FDBB30)",
+            LAC: "linear-gradient(90deg, #C8102E, #1D428A)",
+            LAL: "linear-gradient(90deg, #552583, #FDB927)",
+            MEM: "linear-gradient(90deg, #5D76A9, #12173F)",
+            MIA: "linear-gradient(90deg, #98002E, #F9A01B)",
+            MIL: "linear-gradient(90deg, #00471B, #EEE1C6)",
+            MIN: "linear-gradient(90deg, #0C2340, #78BE20)",
+            NOP: "linear-gradient(90deg, #0C2340, #C8102E)",
+            NYK: "linear-gradient(90deg, #006BB6, #F58426)",
+            OKC: "linear-gradient(90deg, #007AC1, #EF3B24)",
+            ORL: "linear-gradient(90deg, #0077C0, #C4CED4)",
+            PHI: "linear-gradient(90deg, #006BB6, #ED174C)",
+            PHX: "linear-gradient(90deg, #1D1160, #E56020)",
+            POR: "linear-gradient(90deg, #E03A3E, #000000)",
+            SAC: "linear-gradient(90deg, #5A2D81, #63727A)",
+            SAS: "linear-gradient(90deg, #000000, #C4CED4)",
+            TOR: "linear-gradient(90deg, #CE1141, #000000)",
+            UTA: "linear-gradient(90deg, #002B5C, #F9A01B)",
+            WAS: "linear-gradient(90deg, #002B5C, #E31837)"
+        };
+
+        const gradientFor = (team) => teamGradients[team] || "linear-gradient(90deg, var(--primary), #38a28e)";
+
+        const fadePreviousGradient = (fill, previousGradient) => {
+            if (!fill || !previousGradient || previousGradient === fill.dataset.gradient) {
+                return;
+            }
+
+            const overlay = document.createElement("span");
+            overlay.className = "probability-color-overlay";
+            overlay.style.background = previousGradient;
+            fill.appendChild(overlay);
+
+            requestAnimationFrame(() => {
+                overlay.classList.add("probability-color-overlay-fade");
+            });
+
+            overlay.addEventListener("transitionend", () => overlay.remove(), { once: true });
+        };
 
         const parsePercent = (value) => {
             const parsed = Number.parseFloat(String(value || "").replace("%", ""));
@@ -136,13 +187,32 @@
 
         const current = {
             home: parsePercent(homeFill?.dataset.probability),
-            away: parsePercent(awayFill?.dataset.probability)
+            away: parsePercent(awayFill?.dataset.probability),
+            homeGradient: gradientFor(homeFill?.dataset.team),
+            awayGradient: gradientFor(awayFill?.dataset.team)
         };
 
-        const previous = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+        if (homeFill) {
+            homeFill.dataset.gradient = current.homeGradient;
+            homeFill.style.background = current.homeGradient;
+        }
+        if (awayFill) {
+            awayFill.dataset.gradient = current.awayGradient;
+            awayFill.style.background = current.awayGradient;
+        }
+
+        let previous = null;
+        try {
+            previous = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+        } catch (error) {
+            previous = null;
+        }
+
         if (homeFill && awayFill && previous) {
             homeFill.style.width = `${previous.home}%`;
             awayFill.style.width = `${previous.away}%`;
+            fadePreviousGradient(homeFill, previous.homeGradient);
+            fadePreviousGradient(awayFill, previous.awayGradient);
             homeFill.classList.add("probability-fill-animate");
             awayFill.classList.add("probability-fill-animate");
 
