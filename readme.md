@@ -106,10 +106,6 @@
 | F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential`   |
 | F5: User Profile         | `SriRam S.`        | `Generated a User Profile view to allow for profile changes or deletions`                                            |
 
-<p align="center">
-  <img src="http://github.com/tylernlyons/4370/blob/main/assets/groupcontributionform.png" alt="Group Contribution Form" width="800" />
-</p>
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#dependencies)
 
 ## Project Dependencies
