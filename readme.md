@@ -104,10 +104,10 @@
 | F2: View Games           | `Pranav A.`        | `Built a browsing game results page where users can see all the individual player and team game stats for each game` |
 | F3: Matchup Predictor    | `Swap R.`          | `Built a pure Java data science feature that trains a logistic matchup model from SQL-aggregated NBA game data`      |
 | F4: Rankings             | `Neil C.`          | `Built a feature that ranks NBA teams based on win percentage, points for, points against, and point differential`   |
-| F5: TBD                  | `SriRam S.`        | `Generated a User Profile view to allow for profile changes or deletions`                                            |
+| F5: User Profile         | `SriRam S.`        | `Generated a User Profile view to allow for profile changes or deletions`                                            |
 
 <p align="center">
-  <img src="https://github.com/tylernlyons/MicroBloggr/blob/main/groupcontributionform.png" alt="Group Contribution Form" width="800" />
+  <img src="http://github.com/tylernlyons/4370/blob/main/assets/groupcontributionform.png" alt="Group Contribution Form" width="800" />
 </p>
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#dependencies)
